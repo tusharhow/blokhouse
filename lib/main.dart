@@ -1,5 +1,5 @@
+import 'package:blokhouse/x.dart';
 import 'package:flutter/material.dart';
-import 'screens/main/home_page.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           900: Color(0xff0B6BCC)
         }),
       ),
-      home: const MyHomePage(),
+      home: ProfilePostScreen(),
     );
   }
 }
