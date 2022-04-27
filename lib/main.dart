@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'screens/content_screen.dart';
+import 'screens/feed_screen.dart';
 import 'screens/user/profile_post_screen.dart';
 
 void main() {
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
           900: Color(0xff0B6BCC)
         }),
       ),
-      home:  ProfilePostScreen(),
+      home: ContentScreen(),
     );
   }
 }
