@@ -8,13 +8,13 @@ class AnimatedToggle extends StatefulWidget {
   final Color buttonColor;
   final Color textColor;
 
-  const AnimatedToggle({
+   const AnimatedToggle({Key? key, 
     required this.values,
     required this.onToggleCallback,
     this.backgroundColor = const Color(0xFFe7e7e8),
     this.buttonColor = const Color(0xFFFFFFFF),
     this.textColor = const Color(0xFF000000),
-  });
+  }) : super(key: key);
   @override
   _AnimatedToggleState createState() => _AnimatedToggleState();
 }
@@ -201,8 +201,331 @@ class _MyHomePageState extends State<ProfilePostScreen> {
                         Container(
                           height: 400,
                           width: MediaQuery.of(context).size.width / 1.05,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
+                          ),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      height: 60,
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xffF8FAFD),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Text(
+                                            'Header',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 130,
+                                          ),
+                                          Text(
+                                            '8m ago',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black12,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      const Text(
+                                        'He'
+                                        'll want to use your yacht, and I don'
+                                        't\nwant this thing smelling like fish.',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Divider(
+                                thickness: 1,
+                                color: Colors.black12,
+                                endIndent: 20,
+                                indent: 20,
+                              ),
+                              Row(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      height: 60,
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xffF8FAFD),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Text(
+                                            'Header',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 130,
+                                          ),
+                                          Text(
+                                            '8m ago',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black12,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      const Text(
+                                        'He'
+                                        'll want to use your yacht, and I don'
+                                        't\nwant this thing smelling like fish.',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Divider(
+                                thickness: 1,
+                                color: Colors.black12,
+                                endIndent: 20,
+                                indent: 20,
+                              ),
+                              Row(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      height: 60,
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xffF8FAFD),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Text(
+                                            'Header',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 130,
+                                          ),
+                                          Text(
+                                            '8m ago',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black12,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      const Text(
+                                        'He'
+                                        'll want to use your yacht, and I don'
+                                        't\nwant this thing smelling like fish.',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Divider(
+                                thickness: 1,
+                                color: Colors.black12,
+                                endIndent: 20,
+                                indent: 20,
+                              ),
+                              Row(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      height: 60,
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xffF8FAFD),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Text(
+                                            'Header',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 130,
+                                          ),
+                                          Text(
+                                            '8m ago',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black12,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      const Text(
+                                        'He'
+                                        'll want to use your yacht, and I don'
+                                        't\nwant this thing smelling like fish.',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              const Divider(
+                                thickness: 1,
+                                color: Colors.black12,
+                                endIndent: 20,
+                                indent: 20,
+                              ),
+                              Row(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      height: 60,
+                                      width:
+                                          MediaQuery.of(context).size.width / 4,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xffF8FAFD),
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: const [
+                                          Text(
+                                            'Header',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            width: 130,
+                                          ),
+                                          Text(
+                                            '8m ago',
+                                            style: TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black12,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 5,
+                                      ),
+                                      const Text(
+                                        'He'
+                                        'll want to use your yacht, and I don'
+                                        't\nwant this thing smelling like fish.',
+                                        style: TextStyle(
+                                          fontSize: 13,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -213,8 +536,17 @@ class _MyHomePageState extends State<ProfilePostScreen> {
                         Container(
                           height: 400,
                           width: MediaQuery.of(context).size.width / 1.05,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.green,
+                          ),
+                          child: const Center(
+                            child: Text(
+                              'No posts yet',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                         ),
                       ],

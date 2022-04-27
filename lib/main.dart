@@ -1,6 +1,8 @@
-import 'package:blokhouse/x.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'screens/user/profile_post_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
           900: Color(0xff0B6BCC)
         }),
       ),
-      home: ProfilePostScreen(),
+      home:  ProfilePostScreen(),
     );
   }
 }
