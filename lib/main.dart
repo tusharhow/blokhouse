@@ -1,6 +1,8 @@
+import 'package:blokhouse/screens/walkthrough_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'screens/blog_post_screen.dart';
 import 'screens/content_screen.dart';
 import 'screens/feed_screen.dart';
 import 'screens/user/profile_post_screen.dart';
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
           900: Color(0xff0B6BCC)
         }),
       ),
-      home: ContentScreen(),
+      home: WlakThroughScreen(),
     );
   }
 }
