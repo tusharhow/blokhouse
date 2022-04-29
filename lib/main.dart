@@ -1,5 +1,6 @@
 import 'package:blokhouse/screens/calendar_screen.dart';
 import 'package:blokhouse/screens/expenses_screen.dart';
+import 'package:blokhouse/screens/user_options_screen.dart';
 import 'package:blokhouse/screens/walkthrough_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,8 @@ import 'screens/feed_screen.dart';
 import 'screens/images_screen.dart';
 import 'screens/insights_screen.dart';
 import 'screens/market_screen.dart';
+import 'screens/message_screen.dart';
+import 'screens/rating_screen.dart';
 import 'screens/user/profile_post_screen.dart';
 
 void main() {
@@ -38,7 +41,7 @@ class MyApp extends StatelessWidget {
           900: Color(0xff0B6BCC)
         }),
       ),
-      home: ExpensesScreen(),
+      home: UsersOptionsScreen(),
     );
   }
 }
