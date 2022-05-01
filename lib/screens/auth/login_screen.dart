@@ -25,13 +25,32 @@ class LoginScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const Center(
-            child: ReusableTextFormField(
-              hint: 'Name',
+          Image.asset(
+            'assets/logos/logo2.png',
+            // height: 100,
+            // width: 100,
+          ),
+          const SizedBox(
+            height: 35,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 30,
+            ),
+            child: Row(
+              children: [
+                Text(
+                  'Email',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black54,
+                  ),
+                ),
+              ],
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           const Center(
             child: ReusableTextFormField(
@@ -40,6 +59,25 @@ class LoginScreen extends StatelessWidget {
           ),
           const SizedBox(
             height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 30,
+            ),
+            child: Row(
+              children: [
+                Text(
+                  'Password',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black54,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 10,
           ),
           const Center(
             child: ReusableTextFormField(

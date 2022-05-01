@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
-  const PrimaryButton({
+  PrimaryButton({
     Key? key,
     @required this.btnColor,
     @required this.btnText,
@@ -11,12 +11,12 @@ class PrimaryButton extends StatelessWidget {
   final btnColor;
   final btnText;
   final btnTextColor;
-  final Function onPressed;
+  VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onPressed,
       child: Container(
         height: 50,
         width: MediaQuery.of(context).size.width / 1.10,

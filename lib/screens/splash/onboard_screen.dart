@@ -23,59 +23,27 @@ class _IntroPageState extends State<IntroPage> {
     });
 
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          _appBar(),
-          _body(_controller),
-          _indicator(),
-        ],
-      ),
-    );
-  }
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xff00A9FF),
+              Color(0xff9CDEFF),
+            ],
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            // _appBar(),
+            SizedBox(
+              height: 70,
+            ),
 
-  _appBar() {
-    return Container(
-      margin: const EdgeInsets.only(top: 25),
-      padding: const EdgeInsets.all(12),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          GestureDetector(
-            onTap: () {
-              if (initialPage > 0)
-                _controller.animateToPage(initialPage - 1,
-                    duration: Duration(microseconds: 500),
-                    curve: Curves.easeIn);
-            },
-            child: Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                color: Colors.grey.withAlpha(50),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                ),
-              ),
-              child: Icon(Icons.arrow_back_ios),
-            ),
-          ),
-          FlatButton(
-            onPressed: () {
-              if (initialPage < list.length)
-                _controller.animateToPage(list.length,
-                    duration: Duration(microseconds: 500),
-                    curve: Curves.easeInOut);
-            },
-            child: Text(
-              "Skip",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-                color: Colors.black,
-              ),
-            ),
-          ),
-        ],
+            _body(_controller),
+          ],
+        ),
       ),
     );
   }
@@ -157,17 +125,18 @@ class _IntroPageState extends State<IntroPage> {
     return Text(
       text,
       style: const TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 20,
+        fontSize: 24,
+        color: Colors.white,
       ),
       textAlign: TextAlign.center,
     );
   }
 
-  _displayImage(int path) {
+  _displayImage(path) {
     return Image.asset(
-      "assets/images/$path.png",
-      height: MediaQuery.of(context).size.height * .5,
+      path,
+      // height: MediaQuery.of(context).size.height * .5,
+      fit: BoxFit.cover,
     );
   }
 }
