@@ -5,6 +5,8 @@ import 'package:blokhouse/screens/splash/onboard_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'screens/auth/kyc_verification.dart';
+import 'screens/blok_sat_screen.dart';
+import 'screens/blol_al_screen.dart';
 import 'screens/bottom_nav_screen.dart';
 
 void main() {
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
           900: Color(0xff0B6BCC)
         }),
       ),
-      home: HomePageMain(),
+      home: BlokSatScreen(),
     );
   }
 }
