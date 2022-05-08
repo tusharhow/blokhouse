@@ -11,7 +11,7 @@ class BlokSatScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 2,
-        title: Text(
+        title: const Text(
           'BLOK sat',
           style: TextStyle(
             fontSize: 20,
@@ -32,7 +32,7 @@ class BlokSatScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -41,23 +41,23 @@ class BlokSatScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Mevcut BLOK bakiyeniz :',
                     style: TextStyle(
                       fontSize: 17,
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 20,
                   ),
                   Container(
                     height: 43,
                     width: 70,
                     decoration: BoxDecoration(
-                        color: Color(0xffF0F0F0),
+                        color: const Color(0xffF0F0F0),
                         borderRadius: BorderRadius.circular(50)),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         '12',
                         style: TextStyle(
@@ -71,10 +71,10 @@ class BlokSatScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Kaç adet BLOK satmak istiyorsunuz ?',
               style: TextStyle(
                 fontSize: 17,
