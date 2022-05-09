@@ -26,7 +26,6 @@ class AddNewCardScreen extends StatelessWidget {
           ),
           Image.asset(
             'assets/icons/crd.png',
-            color: Colors.red,
           ),
           // SizedBox(
           //   height: 20,
