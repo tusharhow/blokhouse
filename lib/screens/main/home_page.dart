@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Image.asset('assets/icons/noti.png', height: 25, width: 25),
               )),
         ],
-        title: Text(
+        title: const Text(
           'İlanlar',
           style: TextStyle(
             fontSize: 20,
@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.black),
+          icon: const Icon(Icons.menu, color: Colors.black),
           onPressed: () {
             _scaffoldKey.currentState!.openDrawer();
           },
@@ -96,9 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: 30, left: 20),
+              padding: const EdgeInsets.only(top: 30, left: 20),
               child: Row(
-                children: [
+                children: const [
                   Text(
                     'Öne çıkanlar',
                     style: TextStyle(

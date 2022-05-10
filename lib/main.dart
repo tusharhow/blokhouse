@@ -8,6 +8,7 @@ import 'package:get/get.dart';
 import 'screens/ad_added.dart';
 import 'screens/add_new_card.dart';
 import 'screens/add_new_listing.dart';
+import 'screens/ads_details_page.dart';
 import 'screens/auth/kyc_verification.dart';
 import 'screens/investment_basket_screen.dart';
 import 'screens/blok_sat_screen.dart';
@@ -22,6 +23,7 @@ import 'screens/main/my_account.dart';
 import 'screens/my_bank_information.dart';
 import 'screens/my_contact_information.dart';
 import 'screens/payment_by_wire_transfer.dart';
+import 'screens/real_state_valuation_report.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,7 +50,7 @@ class MyApp extends StatelessWidget {
           900: Color(0xff0B6BCC)
         }),
       ),
-      home: AddNewListing(),
+      home: AdsDetailsPage(),
     );
   }
 }
