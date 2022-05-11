@@ -379,8 +379,34 @@ class MarketPlace extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(
+              height: 50,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/icons/sign.png',
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  'Daha çok ilan, yakında....',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ],
+            )
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blue,
+        onPressed: () {},
+        child: Icon(Icons.add),
       ),
     );
   }
