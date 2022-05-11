@@ -1,3 +1,5 @@
+import 'package:blokhouse/components/navigate.dart';
+import 'package:blokhouse/screens/main/messages_screen.dart';
 import 'package:flutter/material.dart';
 
 class MessageBoxScreen extends StatelessWidget {
@@ -42,54 +44,60 @@ class MessageBoxScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Container(
-              // height: 100,
-              child: Row(
-                children: [
-                  Image.asset('assets/images/user3.png', height: 50, width: 50),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            'Ronald Robertson',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
+            child: GestureDetector(
+              onTap: () {
+                push(context: context, widget: MessagesScreen());
+              },
+              child: Container(
+                // height: 100,
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/user3.png',
+                        height: 50, width: 50),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Ronald Robertson',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 80,
-                          ),
-                          Text(
-                            'Today',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.black54,
+                            SizedBox(
+                              width: 80,
                             ),
-                          ),
-                          Image.asset(
-                            'assets/icons/arr.png',
-                            height: 15,
-                            width: 15,
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'An suas viderer pro. Vis cu magna altera,\nex his vivendo atomorum.',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black54,
+                            Text(
+                              'Today',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.black54,
+                              ),
+                            ),
+                            Image.asset(
+                              'assets/icons/arr.png',
+                              height: 15,
+                              width: 15,
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        Text(
+                          'An suas viderer pro. Vis cu magna altera,\nex his vivendo atomorum.',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -100,54 +108,60 @@ class MessageBoxScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Container(
-              // height: 100,
-              child: Row(
-                children: [
-                  Image.asset('assets/images/user4.png', height: 50, width: 50),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            'Ronald Robertson',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
+            child: GestureDetector(
+              onTap: () {
+                push(context: context, widget: MessagesScreen());
+              },
+              child: Container(
+                // height: 100,
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/user4.png',
+                        height: 50, width: 50),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Ronald Robertson',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 80,
-                          ),
-                          Text(
-                            'Today',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.black54,
+                            SizedBox(
+                              width: 80,
                             ),
-                          ),
-                          Image.asset(
-                            'assets/icons/arr.png',
-                            height: 15,
-                            width: 15,
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'An suas viderer pro. Vis cu magna altera,\nex his vivendo atomorum.',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black54,
+                            Text(
+                              'Today',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.black54,
+                              ),
+                            ),
+                            Image.asset(
+                              'assets/icons/arr.png',
+                              height: 15,
+                              width: 15,
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        Text(
+                          'An suas viderer pro. Vis cu magna altera,\nex his vivendo atomorum.',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -158,54 +172,60 @@ class MessageBoxScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Container(
-              // height: 100,
-              child: Row(
-                children: [
-                  Image.asset('assets/images/user5.png', height: 50, width: 50),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            'Ronald Robertson',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
+            child: GestureDetector(
+              onTap: () {
+                push(context: context, widget: MessagesScreen());
+              },
+              child: Container(
+                // height: 100,
+                child: Row(
+                  children: [
+                    Image.asset('assets/images/user5.png',
+                        height: 50, width: 50),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Ronald Robertson',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 80,
-                          ),
-                          Text(
-                            'Today',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.black54,
+                            SizedBox(
+                              width: 80,
                             ),
-                          ),
-                          Image.asset(
-                            'assets/icons/arr.png',
-                            height: 15,
-                            width: 15,
-                          ),
-                        ],
-                      ),
-                      Text(
-                        'An suas viderer pro. Vis cu magna altera,\nex his vivendo atomorum.',
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.black54,
+                            Text(
+                              'Today',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: Colors.black54,
+                              ),
+                            ),
+                            Image.asset(
+                              'assets/icons/arr.png',
+                              height: 15,
+                              width: 15,
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        Text(
+                          'An suas viderer pro. Vis cu magna altera,\nex his vivendo atomorum.',
+                          style: TextStyle(
+                            fontSize: 13,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

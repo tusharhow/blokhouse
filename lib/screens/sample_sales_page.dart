@@ -1,3 +1,6 @@
+import 'package:blokhouse/components/navigate.dart';
+import 'package:blokhouse/screens/add_new_listing_second.dart';
+import 'package:blokhouse/screens/main/messages_screen.dart';
 import 'package:flutter/material.dart';
 
 class SampleSalesPage extends StatelessWidget {
@@ -18,6 +21,9 @@ class SampleSalesPage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -289,8 +295,15 @@ class SampleSalesPage extends StatelessWidget {
                           Spacer(),
                           Column(
                             children: [
-                              Image.asset(
-                                'assets/icons/mes.png',
+                              GestureDetector(
+                                onTap: () {
+                                  push(
+                                      context: context,
+                                      widget: MessagesScreen());
+                                },
+                                child: Image.asset(
+                                  'assets/icons/mes.png',
+                                ),
                               ),
                               Text(
                                 'Mesaj yaz',
@@ -781,7 +794,9 @@ class SampleSalesPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
-        onPressed: () {},
+        onPressed: () {
+          push(context: context, widget: AddNewListingSecond());
+        },
         child: Icon(Icons.add),
       ),
     );

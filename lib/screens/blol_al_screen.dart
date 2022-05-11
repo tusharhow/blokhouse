@@ -1,4 +1,7 @@
+import 'package:blokhouse/components/navigate.dart';
 import 'package:blokhouse/components/primary_button.dart';
+import 'package:blokhouse/screens/blok_sat_screen.dart';
+import 'package:blokhouse/screens/card_payment_successful.dart';
 import 'package:flutter/material.dart';
 
 class BlokAlScreen extends StatelessWidget {
@@ -19,6 +22,9 @@ class BlokAlScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -125,63 +131,73 @@ class BlokAlScreen extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Container(
-              height: 60,
-              width: MediaQuery.of(context).size.width / 1.2,
-              decoration: BoxDecoration(
-                color: Color(0xffF0F0F0),
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Image.asset(
-                      'assets/icons/bank2.png',
+            GestureDetector(
+              onTap: () {
+                push(context: context, widget: BlokSatScreen());
+              },
+              child: Container(
+                height: 60,
+                width: MediaQuery.of(context).size.width / 1.2,
+                decoration: BoxDecoration(
+                  color: Color(0xffF0F0F0),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Image.asset(
+                        'assets/icons/bank2.png',
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Havale / EFT - Ziraat Bankası',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
+                    SizedBox(
+                      width: 10,
                     ),
-                  ),
-                ],
+                    Text(
+                      'Havale / EFT - Ziraat Bankası',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(
               height: 20,
             ),
-            Container(
-              height: 60,
-              width: MediaQuery.of(context).size.width / 1.2,
-              decoration: BoxDecoration(
-                color: Color(0xffF0F0F0),
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Image.asset(
-                      'assets/icons/card.png',
+            GestureDetector(
+              onTap: () {
+                push(context: context, widget: BlokSatScreen());
+              },
+              child: Container(
+                height: 60,
+                width: MediaQuery.of(context).size.width / 1.2,
+                decoration: BoxDecoration(
+                  color: Color(0xffF0F0F0),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Image.asset(
+                        'assets/icons/card.png',
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Kredi Kartı - xxxx xxxx xxxx 5948',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
+                    SizedBox(
+                      width: 10,
                     ),
-                  ),
-                ],
+                    Text(
+                      'Kredi Kartı - xxxx xxxx xxxx 5948',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(
@@ -191,7 +207,9 @@ class BlokAlScreen extends StatelessWidget {
               btnColor: Color(0xff00A9FF),
               btnText: 'Şimdi öde',
               btnTextColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                push(context: context, widget: CardPaymentSuccessful());
+              },
             ),
             SizedBox(
               height: 50,

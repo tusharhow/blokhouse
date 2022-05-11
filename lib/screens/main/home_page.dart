@@ -1,5 +1,15 @@
+import 'package:blokhouse/components/navigate.dart';
+import 'package:blokhouse/screens/add_new_listing.dart';
+import 'package:blokhouse/screens/ads_details_page.dart';
+import 'package:blokhouse/screens/list_in_marketarea.dart';
+import 'package:blokhouse/screens/main/messages_screen.dart';
+import 'package:blokhouse/screens/main/my_wallet.dart';
+import 'package:blokhouse/screens/settings.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+
+import 'message_box_screen.dart';
+import 'my_account.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -41,28 +51,112 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       key: _scaffoldKey,
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text('Drawer Header'),
-              decoration: BoxDecoration(
-                color: Colors.blue,
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color(0xff00A9FF),
+              Color(0xff8ED9FF),
+            ]),
+          ),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
               ),
-            ),
-            ListTile(
-              title: Text('Item 1'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('Item 2'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
+              ListTile(
+                title: Text(
+                  'Giriş yap - Kayıt ol',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/log.png'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Cüzdan',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/wal.png'),
+                onTap: () {
+                  push(context: context, widget: MyWallet());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Pazar alanı',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/shop2.png'),
+                onTap: () {
+                  push(context: context, widget: ListInMarketArea());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'İlanlar',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/ho.png'),
+                onTap: () {
+                  push(context: context, widget: AddNewListing());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Hesabım',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/u.png'),
+                onTap: () {
+                  push(context: context, widget: MyScreen());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Mesajlar',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/me.png'),
+                onTap: () {
+                  push(context: context, widget: MessageBoxScreen());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Ayarlar',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/sea.png'),
+                onTap: () {
+                  push(context: context, widget: SettingsScreen());
+                },
+              ),
+            ],
+          ),
         ),
       ),
       appBar: AppBar(
@@ -129,99 +223,106 @@ class _MyHomePageState extends State<MyHomePage> {
                       });
                     },
                     itemBuilder: (context, i1) {
-                      return Stack(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              offerImage[i1], // List of Offers precentages
-                              width: MediaQuery.of(context).size.width,
-                              colorBlendMode: BlendMode.softLight,
-                              color: Colors.black.withOpacity(0.8),
-                              fit: BoxFit.cover,
+                      return GestureDetector(
+                        onTap: () {
+                          push(context: context, widget: AdsDetailsPage());
+                        },
+                        child: Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                offerImage[i1], // List of Offers precentages
+                                width: MediaQuery.of(context).size.width,
+                                colorBlendMode: BlendMode.softLight,
+                                color: Colors.black.withOpacity(0.8),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.center,
-                            child: Column(
-                              // mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 15, right: 20),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Container(
-                                        height: 20,
-                                        width: 75,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            'son 8 gün',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 80, left: 20),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Center(
-                                        child: Text(
-                                          'Beşiktaş Abbasağa’da\n1+1 ferah daire.',
-                                          style: TextStyle(
-                                            fontSize: 15,
+                            Container(
+                              alignment: Alignment.center,
+                              child: Column(
+                                // mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 15, right: 20),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Container(
+                                          height: 20,
+                                          width: 75,
+                                          decoration: BoxDecoration(
                                             color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(100),
                                           ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 10, left: 20),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        height: 25,
-                                        width: 120,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            '1.900.000TL',
-                                            style: TextStyle(
-                                              fontSize: 13,
-                                              color: Colors.black,
+                                          child: Center(
+                                            child: Text(
+                                              'son 8 gün',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ), //  end offers
-                        ],
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 80, left: 20),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Center(
+                                          child: Text(
+                                            'Beşiktaş Abbasağa’da\n1+1 ferah daire.',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 10, left: 20),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          height: 25,
+                                          width: 120,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(100),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              '1.900.000TL',
+                                              style: TextStyle(
+                                                fontSize: 13,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ), //  end offers
+                          ],
+                        ),
                       );
                     },
                   ),
@@ -285,70 +386,75 @@ class _MyHomePageState extends State<MyHomePage> {
               scrollDirection: Axis.horizontal,
               child: Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20),
-                child: Row(
-                  children: [
-                    Stack(
-                      children: [
-                        Image.asset(
-                          'assets/images/im1.png',
-                          // width: MediaQuery.of(context).size.width / 1.8,
-                        ),
-                        Positioned(
-                          bottom: 10,
-                          left: 10,
-                          child: Container(
-                            height: 25,
-                            width: 120,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(100),
-                            ),
-                            child: Center(
-                              child: Text(
-                                '7.500TL / aylık',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.black,
+                child: GestureDetector(
+                  onTap: () {
+                    push(context: context, widget: AdsDetailsPage());
+                  },
+                  child: Row(
+                    children: [
+                      Stack(
+                        children: [
+                          Image.asset(
+                            'assets/images/im1.png',
+                            // width: MediaQuery.of(context).size.width / 1.8,
+                          ),
+                          Positioned(
+                            bottom: 10,
+                            left: 10,
+                            child: Container(
+                              height: 25,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '7.500TL / aylık',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Stack(
-                      children: [
-                        Image.asset(
-                          'assets/images/im2.png',
-                          // width: MediaQuery.of(context).size.width / 1.8,
-                        ),
-                        Positioned(
-                          bottom: 10,
-                          left: 10,
-                          child: Container(
-                            height: 25,
-                            width: 120,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(100),
-                            ),
-                            child: Center(
-                              child: Text(
-                                '12.500TL / aylık',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.black,
+                        ],
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      Stack(
+                        children: [
+                          Image.asset(
+                            'assets/images/im2.png',
+                            // width: MediaQuery.of(context).size.width / 1.8,
+                          ),
+                          Positioned(
+                            bottom: 10,
+                            left: 10,
+                            child: Container(
+                              height: 25,
+                              width: 120,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  '12.500TL / aylık',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    )
-                  ],
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -389,99 +495,106 @@ class _MyHomePageState extends State<MyHomePage> {
                       });
                     },
                     itemBuilder: (context, i1) {
-                      return Stack(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              offerImage2[i1], // List of Offers precentages
-                              width: MediaQuery.of(context).size.width,
-                              colorBlendMode: BlendMode.softLight,
-                              color: Colors.black.withOpacity(0.8),
-                              fit: BoxFit.cover,
+                      return GestureDetector(
+                        onTap: () {
+                          push(context: context, widget: AdsDetailsPage());
+                        },
+                        child: Stack(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                offerImage2[i1], // List of Offers precentages
+                                width: MediaQuery.of(context).size.width,
+                                colorBlendMode: BlendMode.softLight,
+                                color: Colors.black.withOpacity(0.8),
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                          Container(
-                            alignment: Alignment.center,
-                            child: Column(
-                              // mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 15, right: 20),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Container(
-                                        height: 20,
-                                        width: 75,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            'son 8 gün',
-                                            style: TextStyle(
-                                              fontSize: 12,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 50, left: 20),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Center(
-                                        child: Text(
-                                          'Beşiktaş Abbasağa’da\n1+1 ferah daire.',
-                                          style: TextStyle(
-                                            fontSize: 15,
+                            Container(
+                              alignment: Alignment.center,
+                              child: Column(
+                                // mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 15, right: 20),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Container(
+                                          height: 20,
+                                          width: 75,
+                                          decoration: BoxDecoration(
                                             color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(100),
                                           ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 10, left: 20),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        height: 25,
-                                        width: 120,
-                                        decoration: BoxDecoration(
-                                          color: Colors.white,
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                        ),
-                                        child: Center(
-                                          child: Text(
-                                            '1.900.000TL',
-                                            style: TextStyle(
-                                              fontSize: 13,
-                                              color: Colors.black,
+                                          child: Center(
+                                            child: Text(
+                                              'son 8 gün',
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                color: Colors.black,
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ), //  end offers
-                        ],
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 50, left: 20),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Center(
+                                          child: Text(
+                                            'Beşiktaş Abbasağa’da\n1+1 ferah daire.',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                        top: 10, left: 20),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          height: 25,
+                                          width: 120,
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(100),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              '1.900.000TL',
+                                              style: TextStyle(
+                                                fontSize: 13,
+                                                color: Colors.black,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ), //  end offers
+                          ],
+                        ),
                       );
                     },
                   ),

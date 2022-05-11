@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MessagesScreen extends StatelessWidget {
-  const MessagesScreen({Key? key}) : super(key: key);
+class HelpMessage extends StatelessWidget {
+  const HelpMessage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,13 +10,14 @@ class MessagesScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 2,
         title: Text(
-          'Samet YURTSEVER',
+          'Destek',
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
         ),
+        centerTitle: true,
         iconTheme: IconThemeData(
           color: Colors.black,
         ),

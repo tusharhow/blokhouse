@@ -1,4 +1,10 @@
+import 'package:blokhouse/components/navigate.dart';
+import 'package:blokhouse/screens/list_in_marketarea.dart';
+import 'package:blokhouse/screens/sample_sales_page.dart';
 import 'package:flutter/material.dart';
+
+import '../add_new_listing.dart';
+import '../add_new_listing_second.dart';
 
 class MarketPlace extends StatelessWidget {
   const MarketPlace({Key? key}) : super(key: key);
@@ -8,6 +14,9 @@ class MarketPlace extends StatelessWidget {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
         backgroundColor: Colors.white,
         elevation: 2,
         actions: [
@@ -41,113 +50,118 @@ class MarketPlace extends StatelessWidget {
               height: 20,
             ),
             Center(
-              child: Container(
-                height: 150,
-                width: MediaQuery.of(context).size.width / 1.1,
-                decoration: BoxDecoration(
-                  color: Color(0xffF2F0F0),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      'assets/images/im4.png',
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Belinay Residence',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
+              child: GestureDetector(
+                onTap: (() {
+                  push(context: context, widget: SampleSalesPage());
+                }),
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width / 1.1,
+                  decoration: BoxDecoration(
+                    color: Color(0xffF2F0F0),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/im4.png',
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Belinay Residence',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.location_on,
-                              size: 15,
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              'Karaman, Merkez',
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.black,
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.location_on,
+                                size: 15,
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Satılık blok adedi : 20 BLOK',
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: Colors.black,
+                              SizedBox(
+                                width: 5,
                               ),
-                            ),
-                            Image.asset(
-                              'assets/icons/arr.png',
-                            ),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              'Tavsiye edilen satış fiyatı',
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.black,
+                              Text(
+                                'Karaman, Merkez',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Image.asset(
-                              'assets/icons/info.png',
-                              height: 20,
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 30),
-                          child: Row(
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
                             children: [
                               Text(
-                                '1.235 TL /',
+                                'Satılık blok adedi : 20 BLOK',
                                 style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 12,
                                   color: Colors.black,
                                 ),
                               ),
                               Image.asset(
-                                'assets/icons/box.png',
+                                'assets/icons/arr.png',
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'Tavsiye edilen satış fiyatı',
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Image.asset(
+                                'assets/icons/info.png',
                                 height: 20,
                               ),
                             ],
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 30),
+                            child: Row(
+                              children: [
+                                Text(
+                                  '1.235 TL /',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Image.asset(
+                                  'assets/icons/box.png',
+                                  height: 20,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -399,7 +413,10 @@ class MarketPlace extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
+            SizedBox(
+              height: 50,
+            ),
           ],
         ),
       ),

@@ -1,3 +1,6 @@
+import 'package:blokhouse/components/navigate.dart';
+import 'package:blokhouse/screens/add_new_listing.dart';
+import 'package:blokhouse/screens/list_in_marketarea.dart';
 import 'package:flutter/material.dart';
 
 class AddNewListingSecond extends StatelessWidget {
@@ -158,21 +161,26 @@ class AddNewListingSecond extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          Container(
-            height: 55,
-            width: MediaQuery.of(context).size.width / 1.5,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(60),
-              color: const Color(0xff00A9FF),
-            ),
-            child: const Center(
-                child: Text(
-              'Devam et',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
+          GestureDetector(
+            onTap: () {
+              push(context: context, widget: ListInMarketArea());
+            },
+            child: Container(
+              height: 55,
+              width: MediaQuery.of(context).size.width / 1.5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(60),
+                color: const Color(0xff00A9FF),
               ),
-            )),
+              child: const Center(
+                  child: Text(
+                'Devam et',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
+              )),
+            ),
           ),
           const SizedBox(
             height: 20,

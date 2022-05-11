@@ -18,6 +18,9 @@ class FaqScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: SingleChildScrollView(
           child: Column(

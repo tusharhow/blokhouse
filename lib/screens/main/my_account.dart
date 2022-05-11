@@ -1,4 +1,14 @@
+import 'package:blokhouse/screens/help_and_communication/help_and_communication_screen.dart';
+import 'package:blokhouse/screens/my_bank_information.dart';
+import 'package:blokhouse/screens/my_contact_information.dart';
 import 'package:flutter/material.dart';
+
+import '../../components/navigate.dart';
+import '../add_new_listing.dart';
+import '../list_in_marketarea.dart';
+import '../settings.dart';
+import 'message_box_screen.dart';
+import 'my_wallet.dart';
 
 class MyScreen extends StatelessWidget {
   const MyScreen({Key? key}) : super(key: key);
@@ -7,6 +17,115 @@ class MyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      drawer: Drawer(
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color(0xff00A9FF),
+              Color(0xff8ED9FF),
+            ]),
+          ),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
+              ListTile(
+                title: Text(
+                  'Giriş yap - Kayıt ol',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/log.png'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Cüzdan',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/wal.png'),
+                onTap: () {
+                  push(context: context, widget: MyWallet());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Pazar alanı',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/shop2.png'),
+                onTap: () {
+                  push(context: context, widget: ListInMarketArea());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'İlanlar',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/ho.png'),
+                onTap: () {
+                  push(context: context, widget: AddNewListing());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Hesabım',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/u.png'),
+                onTap: () {
+                  push(context: context, widget: MyScreen());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Mesajlar',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/me.png'),
+                onTap: () {
+                  push(context: context, widget: MessageBoxScreen());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Ayarlar',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/sea.png'),
+                onTap: () {
+                  push(context: context, widget: SettingsScreen());
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 2,
@@ -60,7 +179,9 @@ class MyScreen extends StatelessWidget {
               height: 30,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                push(context: context, widget: MyWallet());
+              },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SizedBox(
@@ -82,7 +203,7 @@ class MyScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: Text(
-                            'Fotoğraf makinesi ile çek',
+                            'Cüzdanım',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 15,
@@ -107,7 +228,9 @@ class MyScreen extends StatelessWidget {
               height: 10,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                push(context: context, widget: MyContactInformation());
+              },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SizedBox(
@@ -129,7 +252,7 @@ class MyScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: Text(
-                            'Fotoğraf makinesi ile çek',
+                            'İletişim bilgilerim',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 15,
@@ -154,7 +277,9 @@ class MyScreen extends StatelessWidget {
               height: 10,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                push(context: context, widget: MyBankInformation());
+              },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SizedBox(
@@ -176,7 +301,7 @@ class MyScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: Text(
-                            'Fotoğraf makinesi ile çek',
+                            'Banka bilgilerim',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 15,
@@ -201,7 +326,9 @@ class MyScreen extends StatelessWidget {
               height: 10,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                push(context: context, widget: SettingsScreen());
+              },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SizedBox(
@@ -223,7 +350,7 @@ class MyScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: Text(
-                            'Fotoğraf makinesi ile çek',
+                            'Ayarlar',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 15,
@@ -248,7 +375,9 @@ class MyScreen extends StatelessWidget {
               height: 10,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                push(context: context, widget: HelpAndCommunicationScreen());
+              },
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SizedBox(
@@ -270,7 +399,7 @@ class MyScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: Text(
-                            'Fotoğraf makinesi ile çek',
+                            'Yardım & İletişim',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 15,

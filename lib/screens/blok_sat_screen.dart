@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../components/navigate.dart';
 import '../components/primary_button.dart';
+import 'card_payment_successful.dart';
 
 class BlokSatScreen extends StatelessWidget {
   const BlokSatScreen({Key? key}) : super(key: key);
@@ -20,6 +22,9 @@ class BlokSatScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -165,32 +170,37 @@ class BlokSatScreen extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Container(
-              height: 60,
-              width: MediaQuery.of(context).size.width / 1.2,
-              decoration: BoxDecoration(
-                color: Color(0xffF0F0F0),
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Image.asset(
-                      'assets/icons/bank2.png',
+            GestureDetector(
+              onTap: (() {
+                push(context: context, widget: CardPaymentSuccessful());
+              }),
+              child: Container(
+                height: 60,
+                width: MediaQuery.of(context).size.width / 1.2,
+                decoration: BoxDecoration(
+                  color: Color(0xffF0F0F0),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Image.asset(
+                        'assets/icons/bank2.png',
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Ziraat Bankası - 01283122xxx',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
+                    SizedBox(
+                      width: 10,
                     ),
-                  ),
-                ],
+                    Text(
+                      'Ziraat Bankası - 01283122xxx',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(
@@ -210,7 +220,9 @@ class BlokSatScreen extends StatelessWidget {
               btnColor: Color(0xff00A9FF),
               btnText: 'Şimdi sat',
               btnTextColor: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                push(context: context, widget: CardPaymentSuccessful());
+              },
             ),
             SizedBox(
               height: 50,

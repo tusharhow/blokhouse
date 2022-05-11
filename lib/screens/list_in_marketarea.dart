@@ -1,3 +1,5 @@
+import 'package:blokhouse/components/navigate.dart';
+import 'package:blokhouse/screens/ad_added.dart';
 import 'package:flutter/material.dart';
 
 class ListInMarketArea extends StatelessWidget {
@@ -327,21 +329,26 @@ class ListInMarketArea extends StatelessWidget {
           SizedBox(
             height: 40,
           ),
-          Container(
-            height: 55,
-            width: MediaQuery.of(context).size.width / 1.3,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(60),
-              color: Color(0xff00A9FF),
-            ),
-            child: Center(
-                child: Text(
-              'Pazar alanında listele',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
+          GestureDetector(
+            onTap: () {
+              push(context: context, widget: AdAddedScreen());
+            },
+            child: Container(
+              height: 55,
+              width: MediaQuery.of(context).size.width / 1.3,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(60),
+                color: Color(0xff00A9FF),
               ),
-            )),
+              child: Center(
+                  child: Text(
+                'Pazar alanında listele',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
+              )),
+            ),
           ),
         ],
       )),

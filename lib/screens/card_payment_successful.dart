@@ -1,4 +1,7 @@
+import 'package:blokhouse/screens/card_payment_failed.dart';
 import 'package:flutter/material.dart';
+
+import '../components/navigate.dart';
 
 class CardPaymentSuccessful extends StatelessWidget {
   const CardPaymentSuccessful({Key? key}) : super(key: key);
@@ -55,19 +58,25 @@ class CardPaymentSuccessful extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          Container(
-            height: 60,
-            width: MediaQuery.of(context).size.width / 1.3,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              color: Colors.white,
-              border: Border.all(
-                color: Color(0xff596273),
+          GestureDetector(
+            onTap: () {
+              push(context: context, widget: CardPaymentFailed());
+            },
+            child: Container(
+              height: 60,
+              width: MediaQuery.of(context).size.width / 1.3,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                color: Colors.white,
+                border: Border.all(
+                  color: Color(0xff596273),
+                ),
               ),
+              child: Center(
+                  child: Text('Hesabıma geri dön',
+                      style:
+                          TextStyle(color: Color(0xff596273), fontSize: 20))),
             ),
-            child: Center(
-                child: Text('Hesabıma geri dön',
-                    style: TextStyle(color: Color(0xff596273), fontSize: 20))),
           ),
         ],
       ),

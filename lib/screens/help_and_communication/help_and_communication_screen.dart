@@ -1,3 +1,6 @@
+import 'package:blokhouse/components/navigate.dart';
+import 'package:blokhouse/screens/faq_screen.dart';
+import 'package:blokhouse/screens/help_and_communication/message.dart';
 import 'package:flutter/material.dart';
 
 class HelpAndCommunicationScreen extends StatelessWidget {
@@ -18,6 +21,9 @@ class HelpAndCommunicationScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: Column(
         children: [
@@ -33,41 +39,46 @@ class HelpAndCommunicationScreen extends StatelessWidget {
             height: 20,
           ),
           Center(
-            child: Container(
-              height: 65,
-              width: MediaQuery.of(context).size.width / 1.2,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: Colors.grey.withOpacity(0.1),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Image.asset(
-                      'assets/icons/mes2.png',
+            child: GestureDetector(
+              onTap: (() {
+                push(context: context, widget: HelpMessage());
+              }),
+              child: Container(
+                height: 65,
+                width: MediaQuery.of(context).size.width / 1.2,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.grey.withOpacity(0.1),
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Image.asset(
+                        'assets/icons/mes2.png',
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Bizimle İletişime geçin',
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
+                    SizedBox(
+                      width: 10,
                     ),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 40),
-                    child: Image.asset(
-                      'assets/icons/arr.png',
-                      height: 30,
+                    Text(
+                      'Bizimle İletişime geçin',
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                ],
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 40),
+                      child: Image.asset(
+                        'assets/icons/arr.png',
+                        height: 30,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -75,41 +86,46 @@ class HelpAndCommunicationScreen extends StatelessWidget {
             height: 20,
           ),
           Center(
-            child: Container(
-              height: 65,
-              width: MediaQuery.of(context).size.width / 1.2,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: Colors.grey.withOpacity(0.1),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Image.asset(
-                      'assets/icons/info.png',
+            child: GestureDetector(
+              onTap: () {
+                push(context: context, widget: FaqScreen());
+              },
+              child: Container(
+                height: 65,
+                width: MediaQuery.of(context).size.width / 1.2,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: Colors.grey.withOpacity(0.1),
+                ),
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Image.asset(
+                        'assets/icons/info.png',
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    'Sıkça Sorulan Sorular',
-                    style: TextStyle(
-                      fontSize: 17,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
+                    SizedBox(
+                      width: 10,
                     ),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 40),
-                    child: Image.asset(
-                      'assets/icons/arr.png',
-                      height: 30,
+                    Text(
+                      'Sıkça Sorulan Sorular',
+                      style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                ],
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 40),
+                      child: Image.asset(
+                        'assets/icons/arr.png',
+                        height: 30,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
