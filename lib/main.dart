@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
           900: Color(0xff0B6BCC),
         }),
       ),
-      home: HelpAndCommunicationScreen(),
+      home: IntroPage(),
     );
   }
 }
