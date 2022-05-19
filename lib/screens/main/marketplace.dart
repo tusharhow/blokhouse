@@ -3,6 +3,7 @@ import 'package:blokhouse/screens/list_in_marketarea.dart';
 import 'package:blokhouse/screens/sample_sales_page.dart';
 import 'package:flutter/material.dart';
 
+import '../../controllers/marketarea.dart';
 import '../add_new_listing.dart';
 import '../add_new_listing_second.dart';
 
@@ -12,6 +13,7 @@ class MarketPlace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(

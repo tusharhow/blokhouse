@@ -118,7 +118,7 @@ class MyWallet extends StatelessWidget {
                 ),
                 leading: Image.asset('assets/icons/sea.png'),
                 onTap: () {
-                  push(context: context, widget: SettingsScreen());
+                  push(context: context, widget: const SettingsScreen());
                 },
               ),
             ],
