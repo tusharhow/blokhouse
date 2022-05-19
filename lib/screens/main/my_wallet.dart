@@ -10,15 +10,16 @@ import 'messages_screen.dart';
 import 'my_account.dart';
 
 class MyWallet extends StatelessWidget {
-  const MyWallet({Key? key}) : super(key: key);
+  MyWallet({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
+      drawerEnableOpenDragGesture: false,
       drawer: Drawer(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               Color(0xff00A9FF),
               Color(0xff8ED9FF),
@@ -31,7 +32,7 @@ class MyWallet extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.1,
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Giriş yap - Kayıt ol',
                   style: TextStyle(
                     color: Colors.white,
@@ -149,15 +150,15 @@ class MyWallet extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.white,
-          ),
-          onPressed: () {
-            _scaffoldKey.currentState!.openDrawer();
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(
+        //     Icons.menu,
+        //     color: Colors.white,
+        //   ),
+        //   onPressed: () {
+        //     _scaffoldKey.currentState!.openDrawer();
+        //   },
+        // ),
       ),
       body: SingleChildScrollView(
         child: Column(
