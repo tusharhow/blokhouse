@@ -1,6 +1,9 @@
+import 'package:blokhouse/screens/add_new_card.dart';
 import 'package:flutter/material.dart';
 
+import '../components/navigate.dart';
 import '../components/primary_button.dart';
+import 'blok_sat_screen.dart';
 
 class MyBankInformation extends StatelessWidget {
   const MyBankInformation({Key? key}) : super(key: key);
@@ -106,21 +109,26 @@ class MyBankInformation extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          Container(
-            height: 50,
-            width: MediaQuery.of(context).size.width / 1.5,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(60),
-              color: Color(0xff00A9FF),
-            ),
-            child: Center(
-                child: Text(
-              'Yeni ekle',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.white,
+          GestureDetector(
+            onTap: () {
+              push(context: context, widget: AddNewCardScreen());
+            },
+            child: Container(
+              height: 50,
+              width: MediaQuery.of(context).size.width / 1.5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(60),
+                color: Color(0xff00A9FF),
               ),
-            )),
+              child: Center(
+                  child: Text(
+                'Yeni ekle',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                ),
+              )),
+            ),
           ),
         ],
       ),
