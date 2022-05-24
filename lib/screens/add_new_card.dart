@@ -1,7 +1,5 @@
 import 'package:blokhouse/components/navigate.dart';
-import 'package:blokhouse/screens/my_bank_information.dart';
 import 'package:flutter/material.dart';
-
 import 'my_bank_info.dart';
 
 class AddNewCardScreen extends StatelessWidget {
@@ -13,7 +11,7 @@ class AddNewCardScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 2,
-        title: Text(
+        title: const Text(
           'Kredi kartı ekle',
           style: TextStyle(
             fontSize: 20,
@@ -39,7 +37,7 @@ class AddNewCardScreen extends StatelessWidget {
               left: 20,
             ),
             child: Row(
-              children: [
+              children: const[
                 Text(
                   'Kredi kartı sahibi',
                   style: TextStyle(
@@ -50,7 +48,7 @@ class AddNewCardScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -64,7 +62,7 @@ class AddNewCardScreen extends StatelessWidget {
                   borderSide: BorderSide.none,
                 ),
                 labelText: 'Dwayne Johnson',
-                labelStyle: TextStyle(
+                labelStyle: const TextStyle(
                   fontSize: 17,
                   color: Colors.black54,
                 ),

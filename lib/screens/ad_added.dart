@@ -9,7 +9,7 @@ class AdAddedScreen extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(
+          const Center(
             child: Text(
               'Tebrikler! Bloklarınız başarılı\nbir şekilde finansman\niçin atandı.',
               style: TextStyle(
@@ -19,14 +19,14 @@ class AdAddedScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Image.asset(
             'assets/icons/done.png',
-            color: Color(0xff00A9FF),
+            color: const Color(0xff00A9FF),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Container(
@@ -36,10 +36,10 @@ class AdAddedScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(50),
               color: Colors.white,
               border: Border.all(
-                color: Color(0xff596273),
+                color: const Color(0xff596273),
               ),
             ),
-            child: Center(
+            child: const Center(
               child: Text(
                 'Anasayfa',
                 style: TextStyle(color: Color(0xff596273), fontSize: 20),

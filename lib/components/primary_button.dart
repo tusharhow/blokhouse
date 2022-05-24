@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class PrimaryButton extends StatelessWidget {
   PrimaryButton({
     Key? key,
-    @required this.btnColor,
-    @required this.btnText,
-    @required this.btnTextColor,
+    required this.btnColor,
+    required this.btnText,
+    required this.btnTextColor,
     required this.onPressed,
   }) : super(key: key);
-  final btnColor;
-  final btnText;
-  final btnTextColor;
+  final Color btnColor;
+  final String  btnText;
+  final Color btnTextColor;
   VoidCallback onPressed;
 
   @override

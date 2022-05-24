@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProfileMenuRow extends StatelessWidget {
   ProfileMenuRow({Key? key, required this.title, required this.ontap})
       : super(key: key);
-  final title;
+  final String title;
 
   VoidCallback ontap;
   @override
@@ -16,12 +16,12 @@ class ProfileMenuRow extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 17,
               ),
             ),
-            Spacer(),
-            Icon(
+            const Spacer(),
+            const Icon(
               Icons.keyboard_arrow_right,
               color: Colors.grey,
             ),

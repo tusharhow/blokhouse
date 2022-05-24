@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "376791183318",
+    "firebase_url": "https://blokhouse-app-ef6e2-default-rtdb.firebaseio.com",
+    "project_id": "blokhouse-app-ef6e2",
+    "storage_bucket": "blokhouse-app-ef6e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376791183318:android:e382b02f9349e1abdffe77",
+        "android_client_info": {
+          "package_name": "com.example.blokhouse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376791183318-42epm4c0643iujq6vsr6b275qem9ad4b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDHgiCEOURrz3cBKDn11OIuwjKlR3kH10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "376791183318-42epm4c0643iujq6vsr6b275qem9ad4b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

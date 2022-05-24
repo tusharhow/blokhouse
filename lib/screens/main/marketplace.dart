@@ -1,11 +1,15 @@
 import 'package:blokhouse/components/navigate.dart';
 import 'package:blokhouse/screens/list_in_marketarea.dart';
+import 'package:blokhouse/screens/main/messages_screen.dart';
 import 'package:blokhouse/screens/sample_sales_page.dart';
+import 'package:blokhouse/screens/settings.dart';
 import 'package:flutter/material.dart';
 
 import '../../controllers/marketarea.dart';
 import '../add_new_listing.dart';
 import '../add_new_listing_second.dart';
+import 'my_account.dart';
+import 'my_wallet.dart';
 
 class MarketPlace extends StatelessWidget {
   const MarketPlace({Key? key}) : super(key: key);
@@ -13,8 +17,117 @@ class MarketPlace extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-    
+
     return Scaffold(
+      drawer: Drawer(
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(colors: [
+              Color(0xff00A9FF),
+              Color(0xff8ED9FF),
+            ]),
+          ),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+              ),
+              ListTile(
+                title: const Text(
+                  'Giriş yap - Kayıt ol',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/log.png'),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Text(
+                  'Cüzdan',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/wal.png'),
+                onTap: () {
+                  push(context: context, widget: MyWallet());
+                },
+              ),
+              ListTile(
+                title: const Text(
+                  'Pazar alanı',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/shop2.png'),
+                onTap: () {
+                  push(context: context, widget: ListInMarketArea());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'İlanlar',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/ho.png'),
+                onTap: () {
+                  push(context: context, widget: AddNewListing());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Hesabım',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/u.png'),
+                onTap: () {
+                  push(context: context, widget: MyScreen());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Mesajlar',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/me.png'),
+                onTap: () {
+                  push(context: context, widget: MessagesScreen());
+                },
+              ),
+              ListTile(
+                title: Text(
+                  'Ayarlar',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
+                ),
+                leading: Image.asset('assets/icons/sea.png'),
+                onTap: () {
+                  push(context: context, widget: const SettingsScreen());
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
       appBar: AppBar(
         iconTheme: IconThemeData(
           color: Colors.black,
@@ -38,12 +151,12 @@ class MarketPlace extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.black),
-          onPressed: () {
-            _scaffoldKey.currentState!.openDrawer();
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.menu, color: Colors.black),
+        //   onPressed: () {
+        //     _scaffoldKey.currentState!.openDrawer();
+        //   },
+        // ),
       ),
       body: SingleChildScrollView(
         child: Column(

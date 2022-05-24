@@ -8,6 +8,7 @@ import '../add_new_listing.dart';
 import '../list_in_marketarea.dart';
 import '../settings.dart';
 import 'message_box_screen.dart';
+import 'messages_screen.dart';
 import 'my_wallet.dart';
 
 class MyScreen extends StatelessWidget {
@@ -19,7 +20,7 @@ class MyScreen extends StatelessWidget {
     return Scaffold(
       drawer: Drawer(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [
               Color(0xff00A9FF),
               Color(0xff8ED9FF),
@@ -32,7 +33,7 @@ class MyScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.1,
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Giriş yap - Kayıt ol',
                   style: TextStyle(
                     color: Colors.white,
@@ -45,7 +46,7 @@ class MyScreen extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Cüzdan',
                   style: TextStyle(
                     color: Colors.white,
@@ -58,7 +59,7 @@ class MyScreen extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Pazar alanı',
                   style: TextStyle(
                     color: Colors.white,
@@ -106,7 +107,7 @@ class MyScreen extends StatelessWidget {
                 ),
                 leading: Image.asset('assets/icons/me.png'),
                 onTap: () {
-                  push(context: context, widget: MessageBoxScreen());
+                  push(context: context, widget: MessagesScreen());
                 },
               ),
               ListTile(
@@ -119,7 +120,7 @@ class MyScreen extends StatelessWidget {
                 ),
                 leading: Image.asset('assets/icons/sea.png'),
                 onTap: () {
-                  push(context: context, widget: SettingsScreen());
+                  push(context: context, widget: const SettingsScreen());
                 },
               ),
             ],
@@ -146,12 +147,12 @@ class MyScreen extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        leading: IconButton(
-          icon: Icon(Icons.menu, color: Colors.black),
-          onPressed: () {
-            _scaffoldKey.currentState!.openDrawer();
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.menu, color: Colors.black),
+        //   onPressed: () {
+        //     _scaffoldKey.currentState!.openDrawer();
+        //   },
+        // ),
       ),
       body: SingleChildScrollView(
         child: Column(
