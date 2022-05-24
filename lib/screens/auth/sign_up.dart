@@ -1,4 +1,5 @@
 import 'package:blokhouse/components/primary_button.dart';
+import 'package:blokhouse/controllers/auth_controllers.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -12,6 +13,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
+    AuthControllers authControllers = AuthControllers();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -49,9 +51,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10,
             ),
-            const Center(
+            Center(
               child: ReusableTextFormField(
                 hint: 'Name',
+                controller: authControllers.nameController,
               ),
             ),
             const SizedBox(
@@ -76,9 +79,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10,
             ),
-            const Center(
+            Center(
               child: ReusableTextFormField(
                 hint: 'Email',
+                controller: authControllers.emailController,
               ),
             ),
             const SizedBox(
@@ -103,9 +107,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10,
             ),
-            const Center(
+            Center(
               child: ReusableTextFormField(
                 hint: 'Password',
+                controller: authControllers.passwordController,
               ),
             ),
             const SizedBox(
@@ -130,9 +135,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10,
             ),
-            const Center(
+            Center(
               child: ReusableTextFormField(
                 hint: 'yazınız...',
+                controller: authControllers.passportNumberController,
               ),
             ),
             const SizedBox(
@@ -157,9 +163,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10,
             ),
-            const Center(
+            Center(
               child: ReusableTextFormField(
                 hint: 'yazınız...',
+                controller: authControllers.dobController,
               ),
             ),
             const SizedBox(
@@ -184,9 +191,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10,
             ),
-            const Center(
+            Center(
               child: ReusableTextFormField(
                 hint: 'yazınız...',
+                controller: authControllers.cityController,
               ),
             ),
             const SizedBox(
@@ -211,9 +219,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10,
             ),
-            const Center(
+            Center(
               child: ReusableTextFormField(
                 hint: 'yazınız...',
+                controller: authControllers.addressController,
               ),
             ),
             const SizedBox(
@@ -238,9 +247,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10,
             ),
-            const Center(
+            Center(
               child: ReusableTextFormField(
                 hint: 'yazınız...',
+                controller: authControllers.postCodeController,
               ),
             ),
             const SizedBox(
@@ -265,9 +275,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10,
             ),
-            const Center(
+            Center(
               child: ReusableTextFormField(
                 hint: 'yazınız...',
+                controller: authControllers.phoneController,
               ),
             ),
             const SizedBox(
@@ -314,7 +325,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 btnColor: const Color(0xff00A9FF),
                 btnText: 'Devam et',
                 btnTextColor: Colors.white,
-                onPressed: () {}),
+                onPressed: () {
+                  authControllers.createAccount();
+                }),
             const SizedBox(
               height: 50,
             ),
@@ -351,14 +364,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
 }
 
 class ReusableTextFormField extends StatelessWidget {
-  const ReusableTextFormField({Key? key, required this.hint}) : super(key: key);
+  const ReusableTextFormField(
+      {Key? key, required this.hint, required this.controller})
+      : super(key: key);
   final hint;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width / 1.10,
       height: 50,
       child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
           contentPadding: EdgeInsets.symmetric(horizontal: 20),
           hintText: hint,

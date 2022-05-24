@@ -1,3 +1,4 @@
+import 'package:blokhouse/controllers/auth_controllers.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/primary_button.dart';
@@ -8,6 +9,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthControllers authControllers = AuthControllers();
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -52,9 +54,10 @@ class LoginScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Center(
+          Center(
             child: ReusableTextFormField(
               hint: 'Email',
+              controller: authControllers.loginEmailController,
             ),
           ),
           const SizedBox(
@@ -79,9 +82,10 @@ class LoginScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Center(
+          Center(
             child: ReusableTextFormField(
               hint: 'Password',
+              controller: authControllers.loginPasswordController,
             ),
           ),
           const SizedBox(
@@ -94,7 +98,9 @@ class LoginScreen extends StatelessWidget {
               btnColor: const Color(0xff00A9FF),
               btnText: 'Log in',
               btnTextColor: Colors.white,
-              onPressed: () {}),
+              onPressed: () {
+                authControllers.loginUser();
+              }),
           const SizedBox(
             height: 20,
           ),
@@ -107,6 +113,41 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Don\'t have an account?',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                ),
+              ),
+              const SizedBox(
+                width: 5,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignUpScreen(),
+                    ),
+                  );
+                },
+                child: Text(
+                  'Sign up',
+                  style: TextStyle(
+                    color: Color(0xff00A9FF),
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+            ],
+          )
         ],
       )),
     );

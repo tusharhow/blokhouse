@@ -1,4 +1,5 @@
 import 'package:blokhouse/components/navigate.dart';
+import 'package:blokhouse/screens/auth/sign_up.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/step_model.dart';
@@ -425,41 +426,36 @@ class _IntroPageState extends State<IntroPage> {
   }
 
   _indicator() {
-    return InkWell(
-      onTap: () {
-        // setState((() {
-        //   push(context: context, widget: Scaffold(body: _thirdStep()));
-        // }));
-        print('tapped');
-      },
-      child: Container(
-        width: 120,
-        height: 90,
-        margin: const EdgeInsets.symmetric(vertical: 12),
-        child: Align(
-          alignment: Alignment.center,
-          child: GestureDetector(
-            onTap: () {
-              if (initialPage < list.length) {
-                _controller.animateToPage(initialPage + 1,
-                    duration: const Duration(microseconds: 500),
-                    curve: Curves.easeIn);
-              }
-            },
-            child: Container(
-              width: 100,
-              height: 50,
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 64, 88, 107),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(100),
-                ),
+    return Container(
+      width: 120,
+      height: 90,
+      margin: const EdgeInsets.symmetric(vertical: 12),
+      child: Align(
+        alignment: Alignment.center,
+        child: GestureDetector(
+          onTap: () {
+            if (initialPage < list.length) {
+              _controller.animateToPage(initialPage + 1,
+                  duration: const Duration(microseconds: 500),
+                  curve: Curves.easeIn);
+            }
+            if (initialPage == list.length - 1) {
+              push(context: context, widget: SignUpScreen());
+            }
+          },
+          child: Container(
+            width: 100,
+            height: 50,
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 64, 88, 107),
+              borderRadius: BorderRadius.all(
+                Radius.circular(100),
               ),
-              child: const Icon(
-                Icons.keyboard_arrow_right_rounded,
-                color: Colors.white,
-                size: 30,
-              ),
+            ),
+            child: const Icon(
+              Icons.keyboard_arrow_right_rounded,
+              color: Colors.white,
+              size: 30,
             ),
           ),
         ),

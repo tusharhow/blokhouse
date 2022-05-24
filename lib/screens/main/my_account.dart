@@ -1,3 +1,4 @@
+import 'package:blokhouse/controllers/auth_controllers.dart';
 import 'package:blokhouse/screens/help_and_communication/help_and_communication_screen.dart';
 import 'package:blokhouse/screens/my_bank_information.dart';
 import 'package:blokhouse/screens/my_contact_information.dart';
@@ -17,6 +18,7 @@ class MyScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    AuthControllers authControllers = AuthControllers();
     return Scaffold(
       drawer: Drawer(
         child: Container(
@@ -42,7 +44,7 @@ class MyScreen extends StatelessWidget {
                 ),
                 leading: Image.asset('assets/icons/log.png'),
                 onTap: () {
-                  Navigator.pop(context);
+                  authControllers.logoutUser();
                 },
               ),
               ListTile(
@@ -157,6 +159,7 @@ class MyScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
+           
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Center(
