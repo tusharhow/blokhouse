@@ -45,7 +45,7 @@ class MyWallet extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Cüzdan',
                   style: TextStyle(
                     color: Colors.white,
@@ -58,7 +58,7 @@ class MyWallet extends StatelessWidget {
                 },
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Pazar alanı',
                   style: TextStyle(
                     color: Colors.white,
@@ -142,7 +142,7 @@ class MyWallet extends StatelessWidget {
                 ),
               )),
         ],
-        title: Text(
+        title: const Text(
           'Cüzdanım',
           style: TextStyle(
             fontSize: 20,
@@ -169,7 +169,7 @@ class MyWallet extends StatelessWidget {
                 Container(
                   height: 300,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
                         Color(0xff00A9FF),
@@ -181,7 +181,7 @@ class MyWallet extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Image.asset(
@@ -233,10 +233,10 @@ class MyWallet extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: 240),
+                  margin: const EdgeInsets.only(top: 240),
                   height: 480,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(40),
@@ -248,7 +248,7 @@ class MyWallet extends StatelessWidget {
                     width: MediaQuery.of(context).size.width,
                     child: ListView(
                       shrinkWrap: true,
-                      physics: BouncingScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       scrollDirection: Axis.vertical,
                       children: [
                         Padding(
