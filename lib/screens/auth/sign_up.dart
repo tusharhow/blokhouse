@@ -1,6 +1,11 @@
+import 'package:blokhouse/components/navigate.dart';
 import 'package:blokhouse/components/primary_button.dart';
 import 'package:blokhouse/controllers/auth_controllers.dart';
+import 'package:blokhouse/screens/auth/login_screen.dart';
+import 'package:blokhouse/screens/help_and_communication/help_and_communication_screen.dart';
 import 'package:flutter/material.dart';
+
+import '../../components/reusable_text_form.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -10,7 +15,8 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  bool _isChecked = false;
+  bool _isCheckedFirst = false;
+  bool _isCheckedSecond = false;
   @override
   Widget build(BuildContext context) {
     AuthControllers authControllers = AuthControllers();
@@ -286,16 +292,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             CheckboxListTile(
               title: const Text(
-                "I would like to receive your newsletter and other promotional information.",
+                "BlokHouse üyelik sözleşme şartlarını okudum\nve koşullarını kabul ediyorum.",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 13,
                 ),
               ),
-              value: _isChecked,
+              value: _isCheckedFirst,
               onChanged: (newValue) {
                 setState(() {
-                  _isChecked = newValue!;
+                  _isCheckedFirst = newValue!;
                 });
               },
               controlAffinity:
@@ -303,16 +309,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             CheckboxListTile(
               title: const Text(
-                "I would like to receive your newsletter and other promotional information.",
+                "Evet, gizlilik politikasının şartlarını okudum\nve koşullarını kabul ediyorum.",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 13,
                 ),
               ),
-              value: _isChecked,
+              value: _isCheckedSecond,
               onChanged: (newValue) {
                 setState(() {
-                  _isChecked = newValue!;
+                  _isCheckedSecond = newValue!;
                 });
               },
               controlAffinity:
@@ -326,8 +332,59 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 btnText: 'Devam et',
                 btnTextColor: Colors.white,
                 onPressed: () {
+                  // if (_isCheckedFirst && _isCheckedSecond) {
+                  //   authControllers.createAccount();
+                  // } else {
+                  //   ScaffoldMessenger.of(context).showSnackBar(
+                  //     const SnackBar(
+                  //       content: Text(
+                  //         'Lütfen koşulları kabul ediniz.',
+                  //         style: TextStyle(
+                  //           color: Colors.white,
+                  //           fontSize: 15,
+                  //         ),
+                  //       ),
+                  //       backgroundColor: Colors.red,
+                  //     ),
+                  //   );
+                  // }
                   authControllers.createAccount();
                 }),
+            const SizedBox(
+              height: 30,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Zaten bir hesabınız var mı?',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black54,
+                  ),
+                ),
+                const SizedBox(
+                  width: 5,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    'Giriş yap',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(
               height: 50,
             ),
@@ -336,18 +393,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Yardım',
-                    style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 14,
+                  GestureDetector(
+                    onTap: () {
+                      push(
+                          context: context,
+                          widget: const HelpAndCommunicationScreen());
+                    },
+                    child: const Text(
+                      'Yardım',
+                      style: TextStyle(
+                        color: Colors.black45,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
-                  Text(
-                    'Şifremi unuttum',
-                    style: TextStyle(
-                      color: Colors.black45,
-                      fontSize: 14,
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      'Şifremi unuttum',
+                      style: TextStyle(
+                        color: Colors.black45,
+                        fontSize: 14,
+                      ),
                     ),
                   ),
                 ],
@@ -358,40 +425,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class ReusableTextFormField extends StatelessWidget {
-  const ReusableTextFormField(
-      {Key? key, required this.hint, required this.controller})
-      : super(key: key);
-  final hint;
-  final TextEditingController controller;
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width / 1.10,
-      height: 50,
-      child: TextFormField(
-        controller: controller,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 20),
-          hintText: hint,
-          hintStyle: const TextStyle(color: Colors.grey, fontSize: 15),
-          // filled: true,
-          // fillColor: const Color(0xffF8FAFD),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(50),
-            borderSide: const BorderSide(color: Colors.black12, width: 1),
-          ),
-          focusedBorder: UnderlineInputBorder(
-            borderSide: const BorderSide(color: Colors.black12, width: 1),
-            borderRadius: BorderRadius.circular(50),
-          ),
-        ),
-        style: const TextStyle(color: Colors.black),
       ),
     );
   }

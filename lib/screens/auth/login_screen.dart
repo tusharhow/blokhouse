@@ -1,7 +1,10 @@
+import 'package:blokhouse/components/navigate.dart';
 import 'package:blokhouse/controllers/auth_controllers.dart';
+import 'package:blokhouse/screens/auth/forgot_password_mail_sent.dart';
 import 'package:flutter/material.dart';
 
 import '../../components/primary_button.dart';
+import '../../components/reusable_text_form.dart';
 import 'sign_up.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -104,12 +107,17 @@ class LoginScreen extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          const Center(
-            child: Text(
-              'Forgot your password?',
-              style: TextStyle(
-                color: Color(0xff00A9FF),
-                fontSize: 14,
+          Center(
+            child: GestureDetector(
+              onTap: () {
+                push(context: context, widget: const ForgotPasswordMailSent());
+              },
+              child: const Text(
+                'Forgot your password?',
+                style: TextStyle(
+                  color: Color(0xff00A9FF),
+                  fontSize: 14,
+                ),
               ),
             ),
           ),
@@ -119,7 +127,7 @@ class LoginScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 'Don\'t have an account?',
                 style: TextStyle(
                   color: Colors.black,
@@ -134,11 +142,11 @@ class LoginScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignUpScreen(),
+                      builder: (context) => const SignUpScreen(),
                     ),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'Sign up',
                   style: TextStyle(
                     color: Color(0xff00A9FF),

@@ -25,6 +25,9 @@ class AuthControllers extends GetxController {
   final TextEditingController loginEmailController = TextEditingController();
   final TextEditingController loginPasswordController = TextEditingController();
 
+  // Forgot password
+  final TextEditingController forgotEmailController = TextEditingController();
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> createAccount() async {
     final user = await _auth.createUserWithEmailAndPassword(
@@ -72,9 +75,7 @@ class AuthControllers extends GetxController {
     final user = _auth.currentUser;
     final firestore = FirebaseFirestore.instance;
     final userData = await firestore.collection('users').doc(user!.uid).get();
-    if (userData.exists) {
-     
-    }
+    if (userData.exists) {}
   }
 
   // Let's make a function for logout
@@ -85,6 +86,14 @@ class AuthControllers extends GetxController {
     prefs.clear();
     Get.offAll(LoginScreen());
   }
+
+// send email for reset password
+  Future sendPasswordResetEmail() async {
+    await _auth
+        .sendPasswordResetEmail(email: forgotEmailController.text.trim())
+        .then((value) {});
+  }
+
 
   @override
   void onInit() {

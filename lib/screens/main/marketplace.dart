@@ -3,6 +3,8 @@ import 'package:blokhouse/screens/list_in_marketarea.dart';
 import 'package:blokhouse/screens/main/messages_screen.dart';
 import 'package:blokhouse/screens/sample_sales_page.dart';
 import 'package:blokhouse/screens/settings.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../controllers/marketarea.dart';
@@ -517,10 +519,10 @@ class MarketPlace extends StatelessWidget {
                 Image.asset(
                   'assets/icons/sign.png',
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
-                Text(
+                const Text(
                   'Daha çok ilan, yakında....',
                   style: TextStyle(
                     fontSize: 16,
@@ -529,7 +531,7 @@ class MarketPlace extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
           ],
@@ -538,7 +540,7 @@ class MarketPlace extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
         onPressed: () {},
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

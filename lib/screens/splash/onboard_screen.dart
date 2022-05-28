@@ -1,8 +1,6 @@
 import 'package:blokhouse/components/navigate.dart';
 import 'package:blokhouse/screens/auth/sign_up.dart';
 import 'package:flutter/material.dart';
-
-import '../../models/step_model.dart';
 import '../bottom_nav_screen.dart';
 
 class IntroPage extends StatefulWidget {
@@ -13,8 +11,7 @@ class IntroPage extends StatefulWidget {
 }
 
 class _IntroPageState extends State<IntroPage> {
-  List<StepModel> list = StepModel.list;
-  var _controller = PageController();
+  final _controller = PageController();
   var initialPage = 0;
 
   @override
@@ -27,7 +24,7 @@ class _IntroPageState extends State<IntroPage> {
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -40,7 +37,7 @@ class _IntroPageState extends State<IntroPage> {
         child: Column(
           children: <Widget>[
             // _appBar(),
-            SizedBox(
+            const SizedBox(
               height: 70,
             ),
 
@@ -51,7 +48,7 @@ class _IntroPageState extends State<IntroPage> {
                 if (initialPage == 1) _prevButton(),
                 if (initialPage == 2) _prevButton(),
                 _dotIndicator(),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 _indicator(),
@@ -80,7 +77,7 @@ class _IntroPageState extends State<IntroPage> {
             borderRadius: BorderRadius.circular(50),
             color: Colors.green.withOpacity(0.2),
           ),
-          child: Center(
+          child: const Center(
             child: Icon(
               Icons.keyboard_arrow_left,
               color: Colors.white,
@@ -96,12 +93,12 @@ class _IntroPageState extends State<IntroPage> {
     return Expanded(
       child: PageView.builder(
         controller: controller,
-        itemCount: list.length,
+        itemCount: 3,
         itemBuilder: (context, index) {
           return Column(
             children: <Widget>[
               // three steps
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               if (index == 0) _firstStep(),
@@ -122,10 +119,10 @@ class _IntroPageState extends State<IntroPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Image.asset('assets/images/on.png'),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text.rich(
+          const Text.rich(
             TextSpan(
               children: [
                 TextSpan(
@@ -172,13 +169,13 @@ class _IntroPageState extends State<IntroPage> {
               ],
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: Row(
               children: [
                 Image.asset('assets/icons/li.png'),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Column(
@@ -397,7 +394,7 @@ class _IntroPageState extends State<IntroPage> {
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: List.generate(list.length, (index) {
+        children: List.generate(3, (index) {
           return Container(
             width: 30,
             height: 30,
@@ -434,13 +431,13 @@ class _IntroPageState extends State<IntroPage> {
         alignment: Alignment.center,
         child: GestureDetector(
           onTap: () {
-            if (initialPage < list.length) {
+            if (initialPage < 3) {
               _controller.animateToPage(initialPage + 1,
                   duration: const Duration(microseconds: 500),
                   curve: Curves.easeIn);
             }
-            if (initialPage == list.length - 1) {
-              push(context: context, widget: SignUpScreen());
+            if (initialPage == 3 - 1) {
+              push(context: context, widget: const SignUpScreen());
             }
           },
           child: Container(
