@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../add_new_listing.dart';
 import '../list_in_marketarea.dart';
-import '../settings.dart';
+import '../settings/settings.dart';
 import 'my_account.dart';
 import 'my_wallet.dart';
 

@@ -4,7 +4,7 @@ import 'package:blokhouse/screens/ads_details_page.dart';
 import 'package:blokhouse/screens/list_in_marketarea.dart';
 import 'package:blokhouse/screens/main/messages_screen.dart';
 import 'package:blokhouse/screens/main/my_wallet.dart';
-import 'package:blokhouse/screens/settings.dart';
+import 'package:blokhouse/screens/settings/settings.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 

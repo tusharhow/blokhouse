@@ -1,11 +1,16 @@
+import 'package:path/path.dart';
+import 'dart:io';
+import 'dart:io' show File;
 import 'package:blokhouse/screens/auth/login_screen.dart';
 import 'package:blokhouse/screens/bottom_nav_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../components/navigate.dart';
 
 class AuthControllers extends GetxController {
   // sign up text editing controllers
@@ -27,6 +32,18 @@ class AuthControllers extends GetxController {
 
   // Forgot password
   final TextEditingController forgotEmailController = TextEditingController();
+
+  // update profile text editing controllers
+  final TextEditingController updateNameController = TextEditingController();
+  final TextEditingController updateCityController = TextEditingController();
+  final TextEditingController updateAddressController = TextEditingController();
+  final TextEditingController updatePhoneController = TextEditingController();
+  final TextEditingController updatePassportNumberController =
+      TextEditingController();
+  final TextEditingController updatePostCodeController =
+      TextEditingController();
+  final TextEditingController updateDobController = TextEditingController();
+  final TextEditingController updateEmailController = TextEditingController();
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> createAccount() async {
@@ -69,13 +86,93 @@ class AuthControllers extends GetxController {
     }
   }
 
-  // fetch current user data
-  Future<void> fetchUserData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+  List<String> downloadUrl = <String>[];
+// pick image
+  File? pickedImage;
+  final picker = ImagePicker();
+  Future<void> pickImage() async {
+    var selected = await picker.pickImage(source: ImageSource.camera);
+    if (selected != null) {
+      pickedImage = File(selected.path);
+      update();
+      print(pickedImage!.path);
+    } else {
+      print('error');
+    }
+  }
+
+  // update user profile and save image to firebase storage
+  Future<void> updateUserProfileAndSaveImage(context) async {
     final user = _auth.currentUser;
     final firestore = FirebaseFirestore.instance;
-    final userData = await firestore.collection('users').doc(user!.uid).get();
-    if (userData.exists) {}
+    final String pickedFile = basename(pickedImage!.path);
+    Reference reference = FirebaseStorage.instance.ref().child(pickedFile);
+    await reference.putData(
+      await pickedImage!.readAsBytes(),
+      SettableMetadata(contentType: 'image/jpeg'),
+    );
+    await reference.getDownloadURL().then((fileURL) {
+      if (kDebugMode) {
+        print('File URL: $fileURL');
+      }
+      final resE = firestore.collection('users').doc(user!.uid).set(
+        {
+          "name": updateNameController.text,
+          "email": updateEmailController.text,
+          "passportNumber": updatePassportNumberController.text,
+          "dateOfBirth": updateDobController.text,
+          "city": updateCityController.text,
+          "address": updateAddressController.text,
+          "postalCode": updatePostCodeController.text,
+          "mobileNumber": updatePhoneController.text,
+          "image": fileURL,
+        },
+      );
+      if (resE != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Profile Updated'),
+            duration: Duration(seconds: 2),
+            backgroundColor: Color(0xFF00C853),
+          ),
+        );
+      } else {
+        print('error');
+      }
+    });
+  }
+
+  // Get user details by user id
+  String? name;
+  String? email;
+  String? passportNumber;
+  String? dateOfBirth;
+  String? city;
+  String? address;
+  String? postalCode;
+  String? mobileNumber;
+  String? image;
+
+  Future<void> getUserDetails() async {
+    final firestore = FirebaseFirestore.instance;
+    final user =
+        await firestore.collection('users').doc(_auth.currentUser!.uid).get();
+    if (user != null) {
+      name = user['name'];
+      email = user['email'];
+      passportNumber = user['passportNumber'];
+      dateOfBirth = user['dateOfBirth'];
+      city = user['city'];
+      address = user['address'];
+      postalCode = user['postalCode'];
+      mobileNumber = user['mobileNumber'];
+      image = user['image'];
+      print('////////////////////////${image}');
+      update();
+      print(user['image']);
+    } else {
+      print('error');
+    }
   }
 
   // Let's make a function for logout
@@ -94,11 +191,11 @@ class AuthControllers extends GetxController {
         .then((value) {});
   }
 
-
   @override
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    fetchUserData();
+    
+    getUserDetails();
   }
 }

@@ -5,7 +5,7 @@ import '../add_new_listing.dart';
 import '../blok_sat_screen.dart';
 import '../blol_al_screen.dart';
 import '../list_in_marketarea.dart';
-import '../settings.dart';
+import '../settings/settings.dart';
 import 'messages_screen.dart';
 import 'my_account.dart';
 
