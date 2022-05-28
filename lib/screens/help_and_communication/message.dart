@@ -7,7 +7,6 @@ import '../../components/recieve_message_screen.dart';
 import '../../components/sent_message_screen.dart';
 import '../../models/responses/bubble.dart';
 
-
 class HelpMessage extends StatelessWidget {
   const HelpMessage({Key? key}) : super(key: key);
 
@@ -98,11 +97,12 @@ class HelpMessage extends StatelessWidget {
                             SentMessageScreen(
                               message: messageBubbles[index].text,
                             ),
-                            ReceivedMessageScreen(
-                              message: messageBubbles[index].reply == ''
-                                  ? "Typing.."
-                                  : messageBubbles[index].reply,
-                            ),
+                           
+                            messageBubbles[index].reply == ''
+                                ? const SizedBox()
+                                : ReceivedMessageScreen(
+                                    message: messageBubbles[index].reply,
+                                  ),
                           ],
                         );
                       },
@@ -171,6 +171,3 @@ class HelpMessage extends StatelessWidget {
     );
   }
 }
-
-
-

@@ -49,7 +49,7 @@ class _MyContactInformationState extends State<MyContactInformation> {
                         child: cont.pickedImage == null
                             ? Stack(
                                 children: [
-                                  cont.image == ''
+                                  File(cont.image!.path) == ''
                                       ? Container(
                                           width: 100,
                                           height: 100,
@@ -69,13 +69,13 @@ class _MyContactInformationState extends State<MyContactInformation> {
                                           borderRadius:
                                               BorderRadius.circular(100),
                                           child: Image.network(
-                                            cont.image.toString(),
+                                            cont.image!.path,
                                             height: 150,
                                             width: 150,
                                           ),
                                         ),
-                                  cont.image == ''
-                                      ? SizedBox()
+                                  File(cont.image!.path) == ''
+                                      ? const SizedBox()
                                       : Positioned(
                                           bottom: 20,
                                           right: 55,
@@ -364,7 +364,8 @@ class _MyContactInformationState extends State<MyContactInformation> {
                         height: 35,
                         width: MediaQuery.of(context).size.width / 1.3,
                         child: TextFormField(
-                          controller: authControllers.updateNameController,
+                          controller:
+                              authControllers.updatePassportNumberController,
                           decoration: InputDecoration(
                               enabledBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
@@ -435,11 +436,11 @@ class _MyContactInformationState extends State<MyContactInformation> {
                                   cont.updatePhoneController.text.isNotEmpty
                                       ? cont.updatePhoneController.text
                                       : cont.mobileNumber.toString(),
-                              hintStyle: TextStyle(
+                              hintStyle: const TextStyle(
                                 fontSize: 16,
                                 color: Colors.grey,
                               ),
-                              suffixIcon: Padding(
+                              suffixIcon: const Padding(
                                 padding: EdgeInsets.only(top: 15),
                                 child: Text(
                                   'Değiştir',
@@ -465,9 +466,10 @@ class _MyContactInformationState extends State<MyContactInformation> {
                             .showSnackBar(const SnackBar(
                           content: Text('Lütfen bir fotoğraf seçiniz'),
                           duration: Duration(seconds: 2),
+                          backgroundColor:  Colors.red,
                         ));
                       }
-                      authControllers.getUserDetails();
+             
                     },
                     child: Container(
                       height: 50,

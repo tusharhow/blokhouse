@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:path/path.dart';
 import 'dart:io';
 import 'dart:io' show File;
@@ -86,6 +88,39 @@ class AuthControllers extends GetxController {
     }
   }
 
+  // Get user details by user id
+  String? name;
+  String? email;
+  String? passportNumber;
+  String? dateOfBirth;
+  String? city;
+  String? address;
+  String? postalCode;
+  String? mobileNumber;
+  File? image;
+
+  Future<void> getUserDetails() async {
+    final firestore = FirebaseFirestore.instance;
+    final user =
+        await firestore.collection('users').doc(_auth.currentUser!.uid).get();
+    if (user != null) {
+      name = user['name'];
+      email = user['email'];
+      passportNumber = user['passportNumber'];
+      dateOfBirth = user['dateOfBirth'];
+      city = user['city'];
+      address = user['address'];
+      postalCode = user['postalCode'];
+      mobileNumber = user['mobileNumber'];
+      image = File(user['image']);
+      print('////////////////////////${image}');
+      update();
+      print(user['image']);
+    } else {
+      print('error');
+    }
+  }
+
   List<String> downloadUrl = <String>[];
 // pick image
   File? pickedImage;
@@ -105,10 +140,12 @@ class AuthControllers extends GetxController {
   Future<void> updateUserProfileAndSaveImage(context) async {
     final user = _auth.currentUser;
     final firestore = FirebaseFirestore.instance;
-    final String pickedFile = basename(pickedImage!.path);
-    Reference reference = FirebaseStorage.instance.ref().child(pickedFile);
+
+    final String? pickedFile =
+        basename(pickedImage == null ? image.toString() : pickedImage!.path);
+    Reference reference = FirebaseStorage.instance.ref().child(pickedFile!);
     await reference.putData(
-      await pickedImage!.readAsBytes(),
+      pickedImage!.readAsBytesSync(),
       SettableMetadata(contentType: 'image/jpeg'),
     );
     await reference.getDownloadURL().then((fileURL) {
@@ -117,15 +154,31 @@ class AuthControllers extends GetxController {
       }
       final resE = firestore.collection('users').doc(user!.uid).set(
         {
-          "name": updateNameController.text,
-          "email": updateEmailController.text,
-          "passportNumber": updatePassportNumberController.text,
-          "dateOfBirth": updateDobController.text,
-          "city": updateCityController.text,
-          "address": updateAddressController.text,
-          "postalCode": updatePostCodeController.text,
-          "mobileNumber": updatePhoneController.text,
-          "image": fileURL,
+          "name": updateNameController.text.isEmpty
+              ? name
+              : updateNameController.text,
+          "email": updateEmailController.text.isEmpty
+              ? email
+              : updateEmailController.text,
+          "passportNumber": updatePassportNumberController.text.isEmpty
+              ? passportNumber
+              : updatePassportNumberController.text,
+          "dateOfBirth": updateDobController.text.isEmpty
+              ? dateOfBirth
+              : updateDobController.text,
+          "city": updateCityController.text.isEmpty
+              ? city
+              : updateCityController.text,
+          "address": updateAddressController.text.isEmpty
+              ? address
+              : updateAddressController.text,
+          "postalCode": updatePostCodeController.text.isEmpty
+              ? postalCode
+              : updatePostCodeController.text,
+          "mobileNumber": updatePhoneController.text.isEmpty
+              ? mobileNumber
+              : updatePhoneController.text,
+          "image": fileURL == '' ? image : fileURL,
         },
       );
       if (resE != null) {
@@ -141,40 +194,6 @@ class AuthControllers extends GetxController {
       }
     });
   }
-
-  // Get user details by user id
-  String? name;
-  String? email;
-  String? passportNumber;
-  String? dateOfBirth;
-  String? city;
-  String? address;
-  String? postalCode;
-  String? mobileNumber;
-  String? image;
-
-  Future<void> getUserDetails() async {
-    final firestore = FirebaseFirestore.instance;
-    final user =
-        await firestore.collection('users').doc(_auth.currentUser!.uid).get();
-    if (user != null) {
-      name = user['name'];
-      email = user['email'];
-      passportNumber = user['passportNumber'];
-      dateOfBirth = user['dateOfBirth'];
-      city = user['city'];
-      address = user['address'];
-      postalCode = user['postalCode'];
-      mobileNumber = user['mobileNumber'];
-      image = user['image'];
-      print('////////////////////////${image}');
-      update();
-      print(user['image']);
-    } else {
-      print('error');
-    }
-  }
-
   // Let's make a function for logout
 
   Future<void> logoutUser() async {
@@ -195,7 +214,7 @@ class AuthControllers extends GetxController {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
-    
+
     getUserDetails();
   }
 }

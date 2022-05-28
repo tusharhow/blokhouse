@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:blokhouse/controllers/auth_controllers.dart';
 import 'package:blokhouse/screens/help_and_communication/help_and_communication_screen.dart';
 import 'package:blokhouse/screens/my_bank_information.dart';
@@ -160,14 +162,14 @@ class MyScreen extends StatelessWidget {
             builder: (cont) {
               return Column(
                 children: [
-                  cont.image == ''
+                 File(cont.image!.path) == ''
                       ? const SizedBox()
                       : Padding(
                           padding: const EdgeInsets.only(top: 20),
                           child: Center(
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(100),
-                              child: cont.image == ''
+                              child: File(cont.image!.path) == ''
                                   ? Container(
                                       height: 100,
                                       width: 100,
@@ -182,7 +184,7 @@ class MyScreen extends StatelessWidget {
                                       ),
                                     )
                                   : Image.network(
-                                      cont.image.toString(),
+                                      cont.image!.path,
                                       height: 150,
                                       width: 150,
                                     ),
