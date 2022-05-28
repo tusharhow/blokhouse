@@ -3,12 +3,10 @@ import 'package:blokhouse/screens/help_and_communication/help_and_communication_
 import 'package:blokhouse/screens/my_bank_information.dart';
 import 'package:blokhouse/screens/my_contact_information.dart';
 import 'package:flutter/material.dart';
-
 import '../../components/navigate.dart';
 import '../add_new_listing.dart';
 import '../list_in_marketarea.dart';
 import '../settings.dart';
-import 'message_box_screen.dart';
 import 'messages_screen.dart';
 import 'my_wallet.dart';
 
@@ -70,11 +68,11 @@ class MyScreen extends StatelessWidget {
                 ),
                 leading: Image.asset('assets/icons/shop2.png'),
                 onTap: () {
-                  push(context: context, widget: ListInMarketArea());
+                  push(context: context, widget: const ListInMarketArea());
                 },
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'İlanlar',
                   style: TextStyle(
                     color: Colors.white,
@@ -83,11 +81,11 @@ class MyScreen extends StatelessWidget {
                 ),
                 leading: Image.asset('assets/icons/ho.png'),
                 onTap: () {
-                  push(context: context, widget: AddNewListing());
+                  push(context: context, widget: const AddNewListing());
                 },
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Hesabım',
                   style: TextStyle(
                     color: Colors.white,
@@ -96,11 +94,11 @@ class MyScreen extends StatelessWidget {
                 ),
                 leading: Image.asset('assets/icons/u.png'),
                 onTap: () {
-                  push(context: context, widget: MyScreen());
+                  push(context: context, widget: const MyScreen());
                 },
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Mesajlar',
                   style: TextStyle(
                     color: Colors.white,
@@ -109,11 +107,11 @@ class MyScreen extends StatelessWidget {
                 ),
                 leading: Image.asset('assets/icons/me.png'),
                 onTap: () {
-                  push(context: context, widget: MessagesScreen());
+                  push(context: context, widget: const MessagesScreen());
                 },
               ),
               ListTile(
-                title: Text(
+                title: const Text(
                   'Ayarlar',
                   style: TextStyle(
                     color: Colors.white,
@@ -141,7 +139,7 @@ class MyScreen extends StatelessWidget {
                     Image.asset('assets/icons/noti.png', height: 25, width: 25),
               )),
         ],
-        title: Text(
+        title: const Text(
           'Hesabım',
           style: TextStyle(
             fontSize: 20,
@@ -159,7 +157,6 @@ class MyScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-           
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: Center(

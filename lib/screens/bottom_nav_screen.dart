@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-
 import 'main/home_page.dart';
 import 'main/marketplace.dart';
 import 'main/message_box_screen.dart';
@@ -19,20 +16,17 @@ class _HomePageMainState extends State<HomePageMain> {
   int _selectedIndex = 0;
 
   final screens = [
-    MyScreen(),
-    MarketPlace(),
+    const MyScreen(),
+    const MarketPlace(),
     MyHomePage(),
-    MessageBoxScreen(),
+    const MessageBoxScreen(),
     MyWallet(),
   ];
-
-  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         drawerEnableOpenDragGesture: false,
-        // key: scaffoldKey,
         bottomNavigationBar: BottomNavigationBar(
             items: const [
               BottomNavigationBarItem(
@@ -72,10 +66,10 @@ class _HomePageMainState extends State<HomePageMain> {
             currentIndex: _selectedIndex,
             selectedItemColor: Colors.black,
             unselectedItemColor: Colors.black38,
-            selectedIconTheme: IconThemeData(
+            selectedIconTheme: const IconThemeData(
               color: Colors.black,
             ),
-            unselectedIconTheme: IconThemeData(
+            unselectedIconTheme: const IconThemeData(
               color: Colors.black38,
             ),
             iconSize: 40,
