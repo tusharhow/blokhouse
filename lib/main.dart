@@ -14,7 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
-  // _init();
+ _init();
 }
 
 _init() async {
@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
           900: Color(0xff0B6BCC),
         }),
       ),
-      home: const HelpMessage(),
+      home: const IntroPage(),
     );
   }
 }
