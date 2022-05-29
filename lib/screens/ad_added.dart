@@ -42,7 +42,10 @@ class AdAddedScreen extends StatelessWidget {
             child: const Center(
               child: Text(
                 'Anasayfa',
-                style: TextStyle(color: Color(0xff596273), fontSize: 20),
+                style: TextStyle(
+                  color: Color(0xff596273),
+                  fontSize: 20,
+                ),
               ),
             ),
           ),

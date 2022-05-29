@@ -49,7 +49,7 @@ class _MyContactInformationState extends State<MyContactInformation> {
                         child: cont.pickedImage == null
                             ? Stack(
                                 children: [
-                                  File(cont.image!.path) == ''
+                                   cont.image == ''
                                       ? Container(
                                           width: 100,
                                           height: 100,
@@ -69,12 +69,12 @@ class _MyContactInformationState extends State<MyContactInformation> {
                                           borderRadius:
                                               BorderRadius.circular(100),
                                           child: Image.network(
-                                            cont.image!.path,
+                                             cont.image.toString(),
                                             height: 150,
                                             width: 150,
                                           ),
                                         ),
-                                  File(cont.image!.path) == ''
+                                   cont.image == ''
                                       ? const SizedBox()
                                       : Positioned(
                                           bottom: 20,
@@ -87,7 +87,7 @@ class _MyContactInformationState extends State<MyContactInformation> {
                                               borderRadius:
                                                   BorderRadius.circular(30),
                                             ),
-                                            child: Icon(
+                                            child: const Icon(
                                               Icons.add,
                                               color: Colors.black,
                                             ),

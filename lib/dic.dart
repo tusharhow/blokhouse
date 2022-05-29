@@ -6,8 +6,9 @@ abstract class Dic {
 
   static Future<void> setUp() async {
     // Services
-    Get.put<AuthControllers>(
-      AuthControllers(),
-    );
+    // Get.put<AuthControllers>(
+    //   AuthControllers(),
+    // );
+    Get.lazyPut(() => AuthControllers());
   }
 }

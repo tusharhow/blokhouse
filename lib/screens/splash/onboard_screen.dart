@@ -1,7 +1,6 @@
 import 'package:blokhouse/components/navigate.dart';
 import 'package:blokhouse/screens/auth/sign_up.dart';
 import 'package:flutter/material.dart';
-import '../bottom_nav_screen.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({Key? key}) : super(key: key);
@@ -49,7 +48,7 @@ class _IntroPageState extends State<IntroPage> {
                 if (initialPage == 2) _prevButton(),
                 _dotIndicator(),
                 const SizedBox(
-                  width: 20,
+                  width: 25,
                 ),
                 _indicator(),
               ],
@@ -64,15 +63,15 @@ class _IntroPageState extends State<IntroPage> {
     return GestureDetector(
       onTap: () {
         _controller.previousPage(
-          duration: Duration(milliseconds: 300),
+          duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
         );
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 20),
         child: Container(
-          height: 50,
-          width: 50,
+          height: 45,
+          width: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
             color: Colors.green.withOpacity(0.2),
@@ -81,7 +80,7 @@ class _IntroPageState extends State<IntroPage> {
             child: Icon(
               Icons.keyboard_arrow_left,
               color: Colors.white,
-              size: 35,
+              size: 30,
             ),
           ),
         ),
@@ -114,11 +113,13 @@ class _IntroPageState extends State<IntroPage> {
   _firstStep() {
     return SizedBox(
       width: double.infinity,
-      height: 500,
+      height: 600,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('assets/images/on.png'),
+          Image.asset(
+            'assets/images/on.png',
+          ),
           const SizedBox(
             height: 20,
           ),
@@ -151,7 +152,7 @@ class _IntroPageState extends State<IntroPage> {
   _secondStep() {
     return SizedBox(
       width: double.infinity,
-      height: 500,
+      height: 550,
       child: Column(
         children: [
           Padding(
@@ -180,7 +181,7 @@ class _IntroPageState extends State<IntroPage> {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       'İnovatif Yatırım',
                       style: TextStyle(
@@ -217,7 +218,7 @@ class _IntroPageState extends State<IntroPage> {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       'Kolayca Yönet',
                       style: TextStyle(
@@ -254,7 +255,7 @@ class _IntroPageState extends State<IntroPage> {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       'Değerlenen Sermaye',
                       style: TextStyle(
@@ -291,7 +292,7 @@ class _IntroPageState extends State<IntroPage> {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       'Pasif Kira Getirisi',
                       style: TextStyle(
@@ -323,7 +324,7 @@ class _IntroPageState extends State<IntroPage> {
   _thirdStep() {
     return SizedBox(
       width: double.infinity,
-      height: 500,
+      height: 550,
       child: Column(
         children: [
           Padding(
@@ -341,27 +342,27 @@ class _IntroPageState extends State<IntroPage> {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 35,
           ),
-          Text(
+          const Text(
             'Türkiye’nin ilk parçalı\ngayrimenkul yatırım\nplatformu !',
             style: TextStyle(
               color: Colors.white,
-              fontSize: 35,
+              fontSize: 30,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Image.asset(
             'assets/logos/log3.png',
             height: 150,
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
-          Text.rich(
+          const Text.rich(
             TextSpan(
               children: [
                 TextSpan(
@@ -396,8 +397,8 @@ class _IntroPageState extends State<IntroPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: List.generate(3, (index) {
           return Container(
-            width: 30,
-            height: 30,
+            width: 25,
+            height: 25,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
@@ -441,8 +442,8 @@ class _IntroPageState extends State<IntroPage> {
             }
           },
           child: Container(
-            width: 100,
-            height: 50,
+            width: 90,
+            height: 45,
             decoration: const BoxDecoration(
               color: Color.fromARGB(255, 64, 88, 107),
               borderRadius: BorderRadius.all(

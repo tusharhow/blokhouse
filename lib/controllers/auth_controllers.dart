@@ -66,7 +66,7 @@ class AuthControllers extends GetxController {
       },
     );
     if (user != null) {
-      Get.to(LoginScreen());
+      Get.offAll(const LoginScreen());
     } else {
       print('error');
     }
@@ -82,7 +82,7 @@ class AuthControllers extends GetxController {
 
       prefs.setString("userID", user.user!.uid);
       print(user.user!.uid);
-      Get.to(HomePageMain());
+      Get.offAll(const HomePageMain());
     } else {
       print('error');
     }
@@ -97,7 +97,7 @@ class AuthControllers extends GetxController {
   String? address;
   String? postalCode;
   String? mobileNumber;
-  File? image;
+  String? image;
 
   Future<void> getUserDetails() async {
     final firestore = FirebaseFirestore.instance;
@@ -112,7 +112,7 @@ class AuthControllers extends GetxController {
       address = user['address'];
       postalCode = user['postalCode'];
       mobileNumber = user['mobileNumber'];
-      image = File(user['image']);
+      image = user['image'];
       print('////////////////////////${image}');
       update();
       print(user['image']);
@@ -183,7 +183,7 @@ class AuthControllers extends GetxController {
       );
       if (resE != null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          const SnackBar(
             content: Text('Profile Updated'),
             duration: Duration(seconds: 2),
             backgroundColor: Color(0xFF00C853),
@@ -200,21 +200,21 @@ class AuthControllers extends GetxController {
     await _auth.signOut();
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear();
-    Get.offAll(LoginScreen());
+    Get.offAll(const LoginScreen());
   }
 
 // send email for reset password
   Future sendPasswordResetEmail() async {
     await _auth
         .sendPasswordResetEmail(email: forgotEmailController.text.trim())
-        .then((value) {});
+        .then((value) {
+          
+        });
   }
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
-
     getUserDetails();
   }
 }

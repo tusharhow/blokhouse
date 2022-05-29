@@ -162,14 +162,14 @@ class MyScreen extends StatelessWidget {
             builder: (cont) {
               return Column(
                 children: [
-                 File(cont.image!.path) == ''
+                cont.image == null
                       ? const SizedBox()
                       : Padding(
                           padding: const EdgeInsets.only(top: 20),
                           child: Center(
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(100),
-                              child: File(cont.image!.path) == ''
+                              child:  cont.image == null
                                   ? Container(
                                       height: 100,
                                       width: 100,
@@ -184,7 +184,7 @@ class MyScreen extends StatelessWidget {
                                       ),
                                     )
                                   : Image.network(
-                                      cont.image!.path,
+                                      cont.image.toString(),
                                       height: 150,
                                       width: 150,
                                     ),
