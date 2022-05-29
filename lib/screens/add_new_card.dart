@@ -1,12 +1,12 @@
-import 'package:blokhouse/components/navigate.dart';
+import 'package:blokhouse/controllers/cards/add_new_card.dart';
 import 'package:flutter/material.dart';
-import 'my_bank_info.dart';
 
 class AddNewCardScreen extends StatelessWidget {
   const AddNewCardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AddNewCardController addNewCardController = AddNewCardController();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -20,24 +20,24 @@ class AddNewCardScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        iconTheme: const IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Image.asset(
             'assets/icons/crd.png',
           ),
-          // SizedBox(
-          //   height: 20,
-          // ),
           Padding(
             padding: const EdgeInsets.only(
               left: 20,
             ),
             child: Row(
-              children: const[
+              children: const [
                 Text(
                   'Kredi kartı sahibi',
                   style: TextStyle(
@@ -54,6 +54,7 @@ class AddNewCardScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextFormField(
+              controller: addNewCardController.cardHolderNameController,
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.grey.withOpacity(0.1),
@@ -61,8 +62,8 @@ class AddNewCardScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(50),
                   borderSide: BorderSide.none,
                 ),
-                labelText: 'Dwayne Johnson',
-                labelStyle: const TextStyle(
+                hintText: 'Dwayne Johnson',
+                hintStyle: const TextStyle(
                   fontSize: 17,
                   color: Colors.black54,
                 ),
@@ -94,6 +95,7 @@ class AddNewCardScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: TextFormField(
+              controller: addNewCardController.cardNumberController,
               decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.grey.withOpacity(0.1),
@@ -109,8 +111,8 @@ class AddNewCardScreen extends StatelessWidget {
                       color: Colors.blue,
                     ),
                   ),
-                  labelText: '4225 9765 0008 6141',
-                  labelStyle: TextStyle(
+                  hintText: '4225 9765 0008 6141',
+                  hintStyle: TextStyle(
                     fontSize: 17,
                     color: Colors.black,
                   ),
@@ -130,7 +132,7 @@ class AddNewCardScreen extends StatelessWidget {
                     child: Column(
                   children: [
                     Row(
-                      children: [
+                      children: const [
                         Text(
                           'Date',
                           style: TextStyle(
@@ -141,6 +143,7 @@ class AddNewCardScreen extends StatelessWidget {
                       ],
                     ),
                     TextFormField(
+                      controller: addNewCardController.cardExpiryDateController,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.grey.withOpacity(0.1),
@@ -148,8 +151,8 @@ class AddNewCardScreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(50),
                           borderSide: BorderSide.none,
                         ),
-                        labelText: '09 / 24',
-                        labelStyle: TextStyle(
+                        hintText: '09 / 24',
+                        hintStyle: const TextStyle(
                           fontSize: 17,
                           color: Colors.black54,
                         ),
@@ -157,14 +160,14 @@ class AddNewCardScreen extends StatelessWidget {
                     ),
                   ],
                 )),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 Expanded(
                     child: Column(
                   children: [
                     Row(
-                      children: [
+                      children: const [
                         Text(
                           'CVV',
                           style: TextStyle(
@@ -175,6 +178,7 @@ class AddNewCardScreen extends StatelessWidget {
                       ],
                     ),
                     TextFormField(
+                      controller: addNewCardController.cardCVVController,
                       decoration: InputDecoration(
                           filled: true,
                           fillColor: Colors.grey.withOpacity(0.1),
@@ -182,8 +186,8 @@ class AddNewCardScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(50),
                             borderSide: BorderSide.none,
                           ),
-                          labelText: '722',
-                          labelStyle: TextStyle(
+                          hintText: '722',
+                          hintStyle: const TextStyle(
                             fontSize: 17,
                             color: Colors.black54,
                           ),
@@ -196,21 +200,27 @@ class AddNewCardScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           GestureDetector(
             onTap: () {
-              push(context: context, widget: MyBankInformationSecond());
+              addNewCardController.addNewCard().then((value) {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  content: Text('Kart bilgileriniz başarıyla eklendi.'),
+                  duration: Duration(seconds: 2),
+                  backgroundColor: Colors.green,
+                ));
+              });
             },
             child: Container(
               height: 50,
               width: MediaQuery.of(context).size.width / 1.3,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(60),
-                color: Color(0xff00A9FF),
+                color: const Color(0xff00A9FF),
               ),
-              child: Center(
+              child: const Center(
                   child: Text(
                 'Yeni kart ekle',
                 style: TextStyle(
@@ -220,7 +230,7 @@ class AddNewCardScreen extends StatelessWidget {
               )),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
         ]),

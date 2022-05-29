@@ -1,3 +1,4 @@
+import 'package:blokhouse/controllers/cards/add_new_card.dart';
 import 'package:flutter/material.dart';
 
 class MyBankInformationSecond extends StatelessWidget {
@@ -5,11 +6,13 @@ class MyBankInformationSecond extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AddNewCardController addNewCardController = AddNewCardController();
+   
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 2,
-        title: Text(
+        title: const Text(
           'Banka bilgilerim',
           style: TextStyle(
             fontSize: 20,
@@ -18,17 +21,17 @@ class MyBankInformationSecond extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black,
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20 * 2,
             ),
-            Center(
+            const Center(
               child: Text(
                 'Banka hesabı ve BlokHouse kullanıcı \nadı-soyadı aynı olmak zorundadır.',
                 style: TextStyle(
@@ -38,7 +41,7 @@ class MyBankInformationSecond extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20 * 2,
             ),
             Padding(
@@ -46,7 +49,7 @@ class MyBankInformationSecond extends StatelessWidget {
                 left: 30,
               ),
               child: Row(
-                children: [
+                children: const [
                   Text(
                     'Banka adı (zorunlu)',
                     style: TextStyle(
@@ -61,7 +64,8 @@ class MyBankInformationSecond extends StatelessWidget {
               height: 35,
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormField(
-                decoration: InputDecoration(
+                controller: addNewCardController.bankNameController,
+                decoration: const InputDecoration(
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.grey,
@@ -78,7 +82,7 @@ class MyBankInformationSecond extends StatelessWidget {
                       color: Colors.grey,
                     ),
                     suffixIcon: Padding(
-                      padding: const EdgeInsets.only(top: 15),
+                      padding: EdgeInsets.only(top: 15),
                       child: Text(
                         'Değiştir',
                         style: TextStyle(
@@ -89,7 +93,7 @@ class MyBankInformationSecond extends StatelessWidget {
                     )),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -112,7 +116,8 @@ class MyBankInformationSecond extends StatelessWidget {
               height: 35,
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormField(
-                decoration: InputDecoration(
+                controller: addNewCardController.ibanNumberController,
+                decoration: const InputDecoration(
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.grey,
@@ -129,7 +134,7 @@ class MyBankInformationSecond extends StatelessWidget {
                       color: Colors.grey,
                     ),
                     suffixIcon: Padding(
-                      padding: const EdgeInsets.only(top: 15),
+                      padding: EdgeInsets.only(top: 15),
                       child: Text(
                         'Değiştir',
                         style: TextStyle(
@@ -163,7 +168,8 @@ class MyBankInformationSecond extends StatelessWidget {
               height: 35,
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormField(
-                decoration: InputDecoration(
+                controller: addNewCardController.bankHolderNameController,
+                decoration: const InputDecoration(
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.grey,
@@ -180,7 +186,7 @@ class MyBankInformationSecond extends StatelessWidget {
                       color: Colors.grey,
                     ),
                     suffixIcon: Padding(
-                      padding: const EdgeInsets.only(top: 15),
+                      padding: EdgeInsets.only(top: 15),
                       child: Text(
                         'Değiştir',
                         style: TextStyle(
@@ -191,7 +197,7 @@ class MyBankInformationSecond extends StatelessWidget {
                     )),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Padding(
@@ -214,7 +220,8 @@ class MyBankInformationSecond extends StatelessWidget {
               height: 35,
               width: MediaQuery.of(context).size.width / 1.2,
               child: TextFormField(
-                decoration: InputDecoration(
+                controller: addNewCardController.bankAccountNumberController,
+                decoration: const InputDecoration(
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.grey,
@@ -231,7 +238,7 @@ class MyBankInformationSecond extends StatelessWidget {
                       color: Colors.grey,
                     ),
                     suffixIcon: Padding(
-                      padding: const EdgeInsets.only(top: 15),
+                      padding: EdgeInsets.only(top: 15),
                       child: Text(
                         'Değiştir',
                         style: TextStyle(
@@ -242,26 +249,37 @@ class MyBankInformationSecond extends StatelessWidget {
                     )),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            Container(
-              height: 50,
-              width: MediaQuery.of(context).size.width / 1.2,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(60),
-                color: Color(0xff00A9FF),
-              ),
-              child: Center(
-                  child: Text(
-                'Yeni hesap ekle',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
+            GestureDetector(
+              onTap: () {
+                addNewCardController.addNewBank().then((value) {
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text('Başarıyla eklendi'),
+                    duration: Duration(seconds: 2),
+                    backgroundColor: Colors.green,
+                  ));
+                });
+              },
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width / 1.2,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(60),
+                  color: const Color(0xff00A9FF),
                 ),
-              )),
+                child: const Center(
+                    child: Text(
+                  'Yeni hesap ekle',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                )),
+              ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
           ],

@@ -5,11 +5,12 @@ class ChoosePayment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 2,
-          title: Text(
+          title: const Text(
             'Ödeme aracı seç',
             style: TextStyle(
               fontSize: 20,
@@ -21,7 +22,7 @@ class ChoosePayment extends StatelessWidget {
         ),
         body: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Center(
@@ -97,7 +98,7 @@ class ChoosePayment extends StatelessWidget {
                 borderRadius: BorderRadius.circular(60),
                 color: Color(0xff00A9FF),
               ),
-              child: Center(
+              child: const Center(
                   child: Text(
                 'Yeni kart ekle',
                 style: TextStyle(
@@ -117,9 +118,9 @@ class ChoosePayment extends StatelessWidget {
                 color: Colors.grey.withOpacity(0.2),
               ),
               child: Row(
-                children: [
+                children: const [
                   Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.only(left: 20),
                     child: Text(
                       'Yatırım sepeti toplam tutarı :',
                       style: TextStyle(
@@ -129,7 +130,7 @@ class ChoosePayment extends StatelessWidget {
                   ),
                   Spacer(),
                   Padding(
-                    padding: const EdgeInsets.only(right: 20),
+                    padding: EdgeInsets.only(right: 20),
                     child: Text(
                       '2.000 TL',
                       style: TextStyle(

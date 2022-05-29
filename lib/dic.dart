@@ -1,4 +1,5 @@
 import 'package:blokhouse/controllers/auth_controllers.dart';
+import 'package:blokhouse/controllers/cards/add_new_card.dart';
 import 'package:get/get.dart';
 
 abstract class Dic {
@@ -10,5 +11,6 @@ abstract class Dic {
     //   AuthControllers(),
     // );
     Get.lazyPut(() => AuthControllers());
+    Get.lazyPut(() => AddNewCardController().getPaymentMethods());
   }
 }

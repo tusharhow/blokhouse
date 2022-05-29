@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:blokhouse/controllers/auth_controllers.dart';
 import 'package:blokhouse/screens/help_and_communication/help_and_communication_screen.dart';
-import 'package:blokhouse/screens/my_bank_information.dart';
+import 'package:blokhouse/screens/cards/my_bank_information.dart';
 import 'package:blokhouse/screens/my_contact_information.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
