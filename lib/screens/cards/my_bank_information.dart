@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 import '../../components/navigate.dart';
 import '../../components/primary_button.dart';
-import '../../controllers/cards/add_new_card.dart';
+import '../../controllers/credentials/cards/add_new_card.dart';
 import '../blok_sat_screen.dart';
 
 class MyBankInformation extends StatelessWidget {

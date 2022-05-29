@@ -1,5 +1,6 @@
-import 'package:blokhouse/controllers/cards/add_new_card.dart';
 import 'package:flutter/material.dart';
+
+import '../controllers/credentials/cards/add_new_card.dart';
 
 class AddNewCardScreen extends StatelessWidget {
   const AddNewCardScreen({Key? key}) : super(key: key);

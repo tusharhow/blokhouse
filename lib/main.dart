@@ -13,7 +13,6 @@ void main() async {
   await Firebase.initializeApp();
   await Dic.setUp();
   runApp(const MyApp());
-
   _init();
 }
 
@@ -42,18 +41,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: const MaterialColor(0xff0B6BCC, {
-          50: Color(0xff0B6BCC),
-          100: Color(0xff0B6BCC),
-          200: Color(0xff0B6BCC),
-          300: Color(0xff0B6BCC),
-          400: Color(0xff0B6BCC),
-          500: Color(0xff0B6BCC),
-          600: Color(0xff0B6BCC),
-          700: Color(0xff0B6BCC),
-          800: Color(0xff0B6BCC),
-          900: Color(0xff0B6BCC),
-        }),
+        primarySwatch: Colors.blue,
       ),
       home: const IntroPage(),
     );
