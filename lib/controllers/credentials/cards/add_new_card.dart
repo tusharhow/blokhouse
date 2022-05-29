@@ -91,6 +91,116 @@ class AddNewCardController extends GetxController {
     return paymentMethodsList;
   }
 
+  // get id of card
+  String getCardId() {
+    final user = _auth.currentUser;
+    final firestore = FirebaseFirestore.instance;
+    firestore
+        .collection('users')
+        .doc(user!.uid)
+        .collection('paymentMethods')
+        .get()
+        .then((value) {
+      for (var element in value.docs) {
+        final data = element.data();
+        final type = data['type'];
+        if (type == 'card') {
+          final cardNumberFromFirebase = data['cardNumber'];
+          if (cardNumberFromFirebase == "ttgdtjjggg") {
+            final id = element.id;
+            update();
+            print(id);
+            return id;
+          }
+        }
+      }
+      update();
+    });
+    return '';
+  }
+
+  // get bank id from firebase and delete it
+  Future getBankId(String? ibanNumber) async {
+    final user = _auth.currentUser;
+    final firestore = FirebaseFirestore.instance;
+    firestore
+        .collection('users')
+        .doc(user!.uid)
+        .collection('paymentMethods')
+        .get()
+        .then((value) {
+      for (var element in value.docs) {
+        final data = element.data();
+        final type = data['type'];
+        if (type == 'bank') {
+          final ibanNumberFromFirebase = data['ibanNumber'];
+          if (ibanNumberFromFirebase == ibanNumber) {
+            final id = element.id;
+
+            deleteBankById(id);
+
+            update();
+            return id;
+          }
+        }
+      }
+      update();
+    });
+  }
+
+  // get card id from firebase and delete it
+  Future getCardIdFromFirebase(String? cardNumber) async {
+    final user = _auth.currentUser;
+    final firestore = FirebaseFirestore.instance;
+    firestore
+        .collection('users')
+        .doc(user!.uid)
+        .collection('paymentMethods')
+        .get()
+        .then((value) {
+      for (var element in value.docs) {
+        final data = element.data();
+        final type = data['type'];
+        if (type == 'card') {
+          final cardNumberFromFirebase = data['cardNumber'];
+          if (cardNumberFromFirebase == cardNumber) {
+            final id = element.id;
+
+            deleteCardById(id);
+            print(id);
+            update();
+            return id;
+          }
+        }
+      }
+      update();
+    });
+  }
+
+  deleteBankById(String id) async {
+    final user = _auth.currentUser;
+    final firestore = FirebaseFirestore.instance;
+    firestore
+        .collection('users')
+        .doc(user!.uid)
+        .collection('paymentMethods')
+        .doc(id)
+        .delete();
+    update();
+  }
+  
+  deleteCardById(String id) async {
+    final user = _auth.currentUser;
+    final firestore = FirebaseFirestore.instance;
+    firestore
+        .collection('users')
+        .doc(user!.uid)
+        .collection('paymentMethods')
+        .doc(id)
+        .delete();
+    update();
+  }
+
   @override
   void onInit() {
     super.onInit();

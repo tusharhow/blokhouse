@@ -13,6 +13,7 @@ class MyBankInformation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = AddNewCardController();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -108,8 +109,31 @@ class MyBankInformation extends StatelessWidget {
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(right: 25),
-                                        child: Image.asset(
-                                          'assets/icons/in.png',
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            cont.getCardIdFromFirebase(
+                                                card.cardNumber);
+                                            cont.paymentMethodCard
+                                                .removeAt(index);
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              const SnackBar(
+                                                content: Text(
+                                                  'Kart silindi',
+                                                  style: TextStyle(
+                                                    fontSize: 14,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                backgroundColor: Colors.green,
+                                                duration: Duration(seconds: 2),
+                                              ),
+                                            );
+                                          },
+                                          child: Icon(
+                                            Icons.delete,
+                                            color: Colors.red.shade200,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -187,17 +211,40 @@ class MyBankInformation extends StatelessWidget {
                                         ),
                                         Text(
                                           '${bank.bankName} - ${bank.bankAccountNumber}',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 14,
                                             color: Colors.black,
                                           ),
                                         ),
-                                        Spacer(),
+                                        const Spacer(),
                                         Padding(
                                           padding:
                                               const EdgeInsets.only(right: 25),
-                                          child: Image.asset(
-                                            'assets/icons/in.png',
+                                          child: GestureDetector(
+                                            onTap: () {
+                                              cont.getBankId(bank.ibanNumber);
+                                              cont.paymentMethodBank
+                                                  .removeAt(index);
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                const SnackBar(
+                                                  content: Text(
+                                                    'Banka silindi',
+                                                    style: TextStyle(
+                                                      fontSize: 14,
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
+                                                  backgroundColor: Colors.green,
+                                                  duration:
+                                                      Duration(seconds: 2),
+                                                ),
+                                              );
+                                            },
+                                            child: Icon(
+                                              Icons.delete,
+                                              color: Colors.red.shade200,
+                                            ),
                                           ),
                                         ),
                                       ],

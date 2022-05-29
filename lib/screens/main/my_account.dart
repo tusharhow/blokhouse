@@ -149,12 +149,6 @@ class MyScreen extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        // leading: IconButton(
-        //   icon: Icon(Icons.menu, color: Colors.black),
-        //   onPressed: () {
-        //     _scaffoldKey.currentState!.openDrawer();
-        //   },
-        // ),
       ),
       body: SingleChildScrollView(
         child: GetBuilder<AuthControllers>(
@@ -162,14 +156,14 @@ class MyScreen extends StatelessWidget {
             builder: (cont) {
               return Column(
                 children: [
-                cont.image == null
+                  cont.image == null
                       ? const SizedBox()
                       : Padding(
                           padding: const EdgeInsets.only(top: 20),
                           child: Center(
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(100),
-                              child:  cont.image == null
+                              child: cont.image == null
                                   ? Container(
                                       height: 100,
                                       width: 100,
