@@ -105,7 +105,7 @@ class MyBankInformation extends StatelessWidget {
                                         ),
                                         maxLines: 1,
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(right: 25),

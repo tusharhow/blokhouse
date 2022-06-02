@@ -37,11 +37,11 @@ class SentMessageScreen extends StatelessWidget {
     ));
 
     return Padding(
-      padding: EdgeInsets.only(right: 18.0, left: 50, top: 15, bottom: 5),
+      padding: const EdgeInsets.only(right: 18.0, left: 50, top: 15, bottom: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          SizedBox(height: 30),
+        children: [
+          const SizedBox(height: 30),
           messageTextGroup,
         ],
       ),

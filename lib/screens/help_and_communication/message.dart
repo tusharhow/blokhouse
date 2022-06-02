@@ -96,8 +96,7 @@ class HelpMessage extends StatelessWidget {
                           children: [
                             SentMessageScreen(
                               message: messageBubbles[index].text,
-                            ),
-                           
+                            ),  
                             messageBubbles[index].reply == ''
                                 ? const SizedBox()
                                 : ReceivedMessageScreen(
