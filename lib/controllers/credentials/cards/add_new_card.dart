@@ -138,7 +138,7 @@ class AddNewCardController extends GetxController {
             final id = element.id;
 
             deleteBankById(id);
-
+            print(id);
             update();
             return id;
           }
@@ -188,7 +188,7 @@ class AddNewCardController extends GetxController {
         .delete();
     update();
   }
-  
+
   deleteCardById(String id) async {
     final user = _auth.currentUser;
     final firestore = FirebaseFirestore.instance;
