@@ -1,8 +1,10 @@
 import 'package:blokhouse/controllers/chat/chat_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../components/recieve_message_screen.dart';
 import '../../components/sent_message_screen.dart';
 import '../../models/responses/bubble.dart';
 
@@ -13,12 +15,13 @@ class MessagesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final chatConroller = Get.put(ChatConroller());
     final _firestore = FirebaseFirestore.instance;
+    final _user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 2,
         title: const Text(
-          'Tushar',
+          '',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -39,8 +42,8 @@ class MessagesScreen extends StatelessWidget {
 // chat with users
             StreamBuilder<QuerySnapshot>(
                 stream: _firestore
-                    .collection('messages')
-                    .doc('1')
+                    .collection('chatWithUser')
+                    .doc(_user!.uid)
                     .collection('chats')
                     .orderBy('createdAt', descending: true)
                     .snapshots(),
@@ -57,49 +60,52 @@ class MessagesScreen extends StatelessWidget {
                   List<MessageResponse> messageBubbles = [];
                   for (var message in messages) {
                     final messageText = message['message'];
-                    final messageSender = message['senderId'];
-                    final messageTime = message['createdAt'];
-                    final messageReply = message['reply'];
+                    final messageSender = message['reply'];
+                    final createdAt = message['createdAt'];
 
                     final messageBubble = MessageResponse(
-                      text: messageText,
-                      createdAt: messageTime,
-                      reply: messageReply,
                       from: messageSender,
+                      text: messageText,
+                      createdAt: createdAt.toString(),
+                      reply: messageSender,
                     );
                     messageBubbles.add(messageBubble);
                   }
-                  return Column(
-                    children: [
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        height: 620,
-                        child: ListView.builder(
-                          reverse: true,
-                          itemCount: messageBubbles.length,
-                          itemBuilder: (context, index) {
-                            for (var message in messages) {
-                              final messageText = message['message'];
-                              final messageSender = message['senderId'];
-                              final messageTime = message['createdAt'];
-                              final messageReply = message['reply'];
-                              final messageBubble = MessageResponse(
-                                text: messageText,
-                                createdAt: messageTime,
-                                reply: messageReply,
-                                from: messageSender,
-                              );
-                              messageBubbles.add(messageBubble);
-                            }
-                            return SentMessageScreen(
-                              message: messageBubbles[index].from,
-                            );
-                          },
-                        ),
-                      ),
-                    ],
+                  return SizedBox(
+                    height: 620,
+                    child: ListView.builder(
+                      reverse: true,
+                      itemCount: messageBubbles.length,
+                      itemBuilder: (context, index) {
+                        for (var message in messages) {
+                          final messageText = message['reply'];
+                          final messageSender = message['reply'];
+                          final reply = message['reply'];
+
+                          final createdAt = message['createdAt'];
+                          final messageBubble = MessageResponse(
+                            from: messageSender,
+                            text: messageText,
+                            createdAt: createdAt.toString(),
+                            reply: reply,
+                          );
+                          messageBubbles.add(messageBubble);
+                        }
+
+                        return Column(
+                          children: [
+                            SentMessageScreen(
+                              message: messageBubbles[index].text,
+                            ),
+                            messageBubbles[index].reply == ''
+                                ? const SizedBox()
+                                : ReceivedMessageScreen(
+                                    message: messageBubbles[index].reply,
+                                  ),
+                          ],
+                        );
+                      },
+                    ),
                   );
                 }),
 
@@ -136,8 +142,7 @@ class MessagesScreen extends StatelessWidget {
                       onTap: () {
                         chatConroller.sendMessage(
                           chatConroller.messageController.text,
-                          
-                        ).then((value) => chatConroller.messageController.clear());
+                        );
                       },
                       child: Container(
                         height: 30,
