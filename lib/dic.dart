@@ -10,5 +10,6 @@ abstract class Dic {
     Get.lazyPut(() => AuthControllers());
 
     Get.lazyPut(() => AddNewCardController().getPaymentMethods());
+    Get.lazyPut(() => ChatConroller().getMyChatList());
   }
 }

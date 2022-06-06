@@ -5,36 +5,41 @@ import 'package:get/get.dart';
 
 class ChatConroller extends GetxController {
   final TextEditingController messageController = TextEditingController();
-  final TextEditingController replyController = TextEditingController();
 // chat with users
-  Future sendMessage(String message, String senderId) async {
+  Future sendMessage(String senderId) async {
     final _firestore = FirebaseFirestore.instance;
     final _auth = FirebaseAuth.instance;
-    await _firestore
-        .collection('messages')
+    _firestore
+        .collection('chatWithUser')
         .doc(_auth.currentUser!.uid)
         .collection('chats')
-        .doc(_auth.currentUser!.uid)
-        .collection('chats')
-        .doc(senderId)
-        .set({
-      'message': message,
-      'createdAt': DateTime.now().millisecondsSinceEpoch.toString(),
-      'senderId': senderId,
-      'reply': replyController.text,
+        .add({
+      'userId': senderId,
+      'message': messageController.text,
+      'reply': '',
+      'createdAt': DateTime.now(),
     });
-    await _firestore
-        .collection('messages')
-        .doc(_auth.currentUser!.uid)
+    messageController.clear();
+  }
+
+  //my chat list
+  Future getMyChatList() async {
+    final _firestore = FirebaseFirestore.instance;
+    final _auth = FirebaseAuth.instance;
+    final _user = _auth.currentUser;
+    final _myChatList = await _firestore
+        .collection('chatWithUser')
+        .doc(_user!.uid)
         .collection('chats')
-        .doc(senderId)
-        .collection('chats')
-        .doc(_auth.currentUser!.uid)
-        .set({
-      'message': message,
-      'createdAt': DateTime.now().millisecondsSinceEpoch.toString(),
-      'senderId': senderId,
-      'reply': replyController.text,
-    });
+        .get();
+    print('///${_myChatList.docs.length}');
+    update();
+    return _myChatList.docs;
+  }
+
+  @override
+  void onInit() {
+    super.onInit();
+    getMyChatList();
   }
 }

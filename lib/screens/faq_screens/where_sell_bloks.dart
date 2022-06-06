@@ -20,8 +20,8 @@ class WhereSellBloks extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
-            children: [
-              const SizedBox(height: 20),
+            children: const [
+              SizedBox(height: 20),
               Text(
                 'BLOK larınızı özel olarak tasarladığımız MarketPlace (Pazar Alanı) üzerinden satışa koyabilirsiniz.',
                 textAlign: TextAlign.center,

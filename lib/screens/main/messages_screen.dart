@@ -136,8 +136,8 @@ class MessagesScreen extends StatelessWidget {
                       onTap: () {
                         chatConroller.sendMessage(
                           chatConroller.messageController.text,
-                          chatConroller.replyController.text,
-                        );
+                          
+                        ).then((value) => chatConroller.messageController.clear());
                       },
                       child: Container(
                         height: 30,
