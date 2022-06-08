@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 import 'package:path/path.dart';
 import 'dart:io';
 import 'dart:io' show File;

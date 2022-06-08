@@ -24,11 +24,11 @@ class AdsDetailsPage extends StatelessWidget {
                     child: Container(
                       height: 50,
                       width: 50,
-                      decoration: BoxDecoration(
+                      decoration:const BoxDecoration(
                         shape: BoxShape.circle,
                         color: Colors.white,
                       ),
-                      child: Icon(
+                      child:const Icon(
                         Icons.arrow_back,
                       ),
                     ),
@@ -40,11 +40,11 @@ class AdsDetailsPage extends StatelessWidget {
                   child: Container(
                     height: 50,
                     width: 50,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white,
                     ),
-                    child: Icon(
+                    child:const Icon(
                       Icons.share,
                     ),
                   ),
@@ -55,11 +55,11 @@ class AdsDetailsPage extends StatelessWidget {
                   child: Container(
                     height: 50,
                     width: 50,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white,
                     ),
-                    child: Icon(
+                    child:const Icon(
                       Icons.favorite_outline_rounded,
                     ),
                   ),
@@ -70,7 +70,7 @@ class AdsDetailsPage extends StatelessWidget {
                   child: Container(
                     height: 5,
                     width: 5,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white,
                     ),
@@ -94,7 +94,7 @@ class AdsDetailsPage extends StatelessWidget {
                   child: Container(
                     height: 5,
                     width: 5,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white,
                     ),
@@ -106,7 +106,7 @@ class AdsDetailsPage extends StatelessWidget {
                   child: Container(
                     height: 5,
                     width: 5,
-                    decoration: BoxDecoration(
+                    decoration:const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.white,
                     ),
@@ -122,7 +122,7 @@ class AdsDetailsPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50),
                       color: Colors.white.withAlpha(400),
                     ),
-                    child: Center(
+                    child:const Center(
                       child: Text(
                         '1/9',
                         style: TextStyle(
@@ -137,10 +137,10 @@ class AdsDetailsPage extends StatelessWidget {
             ListView(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
-              physics: BouncingScrollPhysics(),
+              physics:const BouncingScrollPhysics(),
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(
+             const   Padding(
+                  padding:  EdgeInsets.only(
                     left: 20,
                   ),
                   child: Text(
@@ -151,7 +151,7 @@ class AdsDetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+            const    SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -163,26 +163,26 @@ class AdsDetailsPage extends StatelessWidget {
                           'assets/icons/house.png',
                           height: 50,
                         ),
-                        SizedBox(
+                  const      SizedBox(
                           height: 5,
                         ),
-                        Text(
+                     const   Text(
                           'Değeri',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        SizedBox(
+                   const     SizedBox(
                           height: 5,
                         ),
                         Container(
                           height: 35,
                           width: 130,
                           decoration: BoxDecoration(
-                            color: Color(0xff01A8FF),
+                            color:const Color(0xff01A8FF),
                             borderRadius: BorderRadius.circular(50),
                           ),
-                          child: Center(
+                          child:const Center(
                             child: Text(
                               '3.800.000TL',
                               style: TextStyle(
@@ -200,26 +200,26 @@ class AdsDetailsPage extends StatelessWidget {
                           'assets/icons/mon.png',
                           height: 50,
                         ),
-                        SizedBox(
+                    const    SizedBox(
                           height: 5,
                         ),
-                        Text(
+                     const   Text(
                           'Yıllık kira getirisi',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        SizedBox(
+                 const       SizedBox(
                           height: 5,
                         ),
                         Container(
                           height: 35,
                           width: 130,
                           decoration: BoxDecoration(
-                            color: Color(0xff01A8FF),
+                            color:const Color(0xff01A8FF),
                             borderRadius: BorderRadius.circular(50),
                           ),
-                          child: Center(
+                          child:const Center(
                             child: Text(
                               '102.000TL',
                               style: TextStyle(
@@ -233,7 +233,7 @@ class AdsDetailsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+           const     SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -243,7 +243,7 @@ class AdsDetailsPage extends StatelessWidget {
                       'assets/icons/task.png',
                       height: 50,
                     ),
-                    Text(
+             const       Text(
                       'Özellikleri',
                       style: TextStyle(
                         color: Colors.black,
@@ -252,7 +252,7 @@ class AdsDetailsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+            const    SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -260,7 +260,7 @@ class AdsDetailsPage extends StatelessWidget {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children:const [
                         Text(
                           'm² (Net) : 156 m²',
                           style: TextStyle(
@@ -302,7 +302,7 @@ class AdsDetailsPage extends StatelessWidget {
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
+                      children:const [
                         Text(
                           'Kat sayısı : Z + 13',
                           style: TextStyle(
@@ -344,7 +344,7 @@ class AdsDetailsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+           const     SizedBox(
                   height: 20,
                 ),
                 Row(
@@ -354,7 +354,7 @@ class AdsDetailsPage extends StatelessWidget {
                       'assets/icons/info.png',
                       height: 40,
                     ),
-                    Text(
+              const      Text(
                       'Tahmini değer artışı :',
                       style: TextStyle(
                         color: Colors.black,
@@ -363,7 +363,7 @@ class AdsDetailsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                Center(
+             const   Center(
                   child: Text(
                     '%89,96',
                     style: TextStyle(
@@ -373,10 +373,10 @@ class AdsDetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+            const    SizedBox(
                   height: 5,
                 ),
-                Center(
+          const      Center(
                   child: Text(
                     '1 yıl sonraki tahmini değer kazancı*',
                     style: TextStyle(
@@ -384,7 +384,7 @@ class AdsDetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+          const      SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -394,7 +394,7 @@ class AdsDetailsPage extends StatelessWidget {
                       'assets/icons/info.png',
                       height: 40,
                     ),
-                    Text(
+              const      Text(
                       'Değer değişimi :',
                       style: TextStyle(
                         color: Colors.black,
@@ -415,9 +415,9 @@ class AdsDetailsPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
-                          children: [
+                          children:const [
                             Padding(
-                              padding: const EdgeInsets.only(left: 20, top: 15),
+                              padding:  EdgeInsets.only(left: 20, top: 15),
                               child: Text(
                                 '1 yıllık',
                                 style: TextStyle(
@@ -426,7 +426,7 @@ class AdsDetailsPage extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 20),
+                              padding:  EdgeInsets.only(left: 20),
                               child: Text(
                                 '+ %163,56',
                                 style: TextStyle(
@@ -439,9 +439,9 @@ class AdsDetailsPage extends StatelessWidget {
                           ],
                         ),
                         Column(
-                          children: [
+                          children:const [
                             Padding(
-                              padding: const EdgeInsets.only(left: 20, top: 15),
+                              padding:  EdgeInsets.only(left: 20, top: 15),
                               child: Text(
                                 '2 yıllık',
                                 style: TextStyle(
@@ -450,7 +450,7 @@ class AdsDetailsPage extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.only(left: 20),
+                              padding:  EdgeInsets.only(left: 20),
                               child: Text(
                                 '+ %300,32',
                                 style: TextStyle(
@@ -465,7 +465,7 @@ class AdsDetailsPage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(right: 20),
                           child: Column(
-                            children: [
+                            children:const [
                               Padding(
                                 padding:
                                     const EdgeInsets.only(left: 20, top: 15),

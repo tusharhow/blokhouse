@@ -79,7 +79,7 @@ class AddNewCardScreen extends StatelessWidget {
               left: 20,
             ),
             child: Row(
-              children: [
+              children: const [
                 Text(
                   'Kredi kartı numarası',
                   style: TextStyle(
@@ -90,7 +90,7 @@ class AddNewCardScreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -102,18 +102,18 @@ class AddNewCardScreen extends StatelessWidget {
                   fillColor: Colors.grey.withOpacity(0.1),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
-                    borderSide: BorderSide(
+                    borderSide:const BorderSide(
                       color: Colors.blue,
                     ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
-                    borderSide: BorderSide(
+                    borderSide:const BorderSide(
                       color: Colors.blue,
                     ),
                   ),
                   hintText: '4225 9765 0008 6141',
-                  hintStyle: TextStyle(
+                  hintStyle:const TextStyle(
                     fontSize: 17,
                     color: Colors.black,
                   ),
@@ -122,7 +122,7 @@ class AddNewCardScreen extends StatelessWidget {
                   )),
             ),
           ),
-          SizedBox(
+       const   SizedBox(
             height: 20,
           ),
           Padding(

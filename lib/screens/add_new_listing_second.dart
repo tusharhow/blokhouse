@@ -1,5 +1,4 @@
 import 'package:blokhouse/components/navigate.dart';
-import 'package:blokhouse/screens/add_new_listing.dart';
 import 'package:blokhouse/screens/list_in_marketarea.dart';
 import 'package:flutter/material.dart';
 
@@ -47,8 +46,8 @@ class AddNewListingSecond extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20, top: 15),
+                      const    Padding(
+                            padding:  EdgeInsets.only(left: 20, top: 15),
                             child: Text(
                               'Göztepe Residence',
                               style: TextStyle(
@@ -57,7 +56,7 @@ class AddNewListingSecond extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(
+                  const        SizedBox(
                             height: 5,
                           ),
                           Row(
@@ -67,10 +66,10 @@ class AddNewListingSecond extends StatelessWidget {
                               Image.asset(
                                 'assets/icons/loc.png',
                               ),
-                              SizedBox(
+                     const         SizedBox(
                                 width: 5,
                               ),
-                              Text(
+                       const       Text(
                                 'İstanbul, Kadıköy',
                                 style: TextStyle(
                                   fontSize: 15,
@@ -79,13 +78,13 @@ class AddNewListingSecond extends StatelessWidget {
                               ),
                             ],
                           ),
-                          SizedBox(
+                   const       SizedBox(
                             height: 15,
                           ),
                           Row(
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 15),
+                           const   Padding(
+                                padding:  EdgeInsets.only(left: 15),
                                 child: Text(
                                   'BLOK adediniz : 10 BLOK',
                                   style: TextStyle(
@@ -94,7 +93,7 @@ class AddNewListingSecond extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                            const  SizedBox(
                                 width: 20,
                               ),
                               Icon(
@@ -106,14 +105,14 @@ class AddNewListingSecond extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Text(
+                           const   Text(
                                 'Tavsiye edilen satış fiyatı',
                                 style: TextStyle(
                                   fontSize: 11,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                              SizedBox(
+                         const     SizedBox(
                                 width: 8,
                               ),
                               Image.asset(
@@ -124,7 +123,7 @@ class AddNewListingSecond extends StatelessWidget {
                           ),
                           Row(
                             children: [
-                              Text(
+                       const       Text(
                                 '1.000 TL /',
                                 style: TextStyle(
                                   fontSize: 22,
@@ -146,10 +145,10 @@ class AddNewListingSecond extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
+       const   SizedBox(
             height: 20,
           ),
-          Center(
+       const   Center(
             child: Text(
               'Hesabınızdaki yatırımları bu sayfa\nüzerinden pazar alanında listeliyebiliriniz.',
               style: TextStyle(
@@ -163,7 +162,7 @@ class AddNewListingSecond extends StatelessWidget {
           const Spacer(),
           GestureDetector(
             onTap: () {
-              push(context: context, widget: ListInMarketArea());
+              push(context: context, widget:const ListInMarketArea());
             },
             child: Container(
               height: 55,
