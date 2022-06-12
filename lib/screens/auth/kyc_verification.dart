@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:blokhouse/components/navigate.dart';
 import 'package:blokhouse/screens/bottom_nav_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -61,7 +59,7 @@ class _KYCVerificationState extends State<KYCVerification> {
                             color: Colors.black45,
                           ),
                         ),
-                        Padding(
+                   const     Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: Text(
                             'Kimlik veya pasaport yükle',
@@ -77,7 +75,7 @@ class _KYCVerificationState extends State<KYCVerification> {
                 ),
               ),
             ),
-            SizedBox(
+         const   SizedBox(
               height: 20,
             ),
             GestureDetector(

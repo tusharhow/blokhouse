@@ -17,9 +17,9 @@ class ConfirmNewPassword extends StatelessWidget {
     final TextEditingController _passConfirmController =
         TextEditingController();
 
-    bool _isVisibility = true;
+    // bool _isVisibility = true;
 
-    AuthControllers _authControllers = Get.put(AuthControllers());
+    // AuthControllers _authControllers = Get.put(AuthControllers());
 
     return Scaffold(
       appBar: AppBar(
