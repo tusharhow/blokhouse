@@ -48,10 +48,32 @@ class ChatConroller extends GetxController {
     return _user.data()!['name'];
   }
 
+// get user name and chat all list with user id
+  Future getUserNameAndChatList() async {
+    final _firestore = FirebaseFirestore.instance;
+    final _auth = FirebaseAuth.instance;
+    final _user = _auth.currentUser;
+    final _userName =
+        await _firestore.collection('users').doc(_user!.uid).get();
+    final _chatList = await _firestore
+        .collection('chatWithUser')
+        .doc(_user.uid)
+        .collection('chats')
+        .get();
+    print('///${_userName.data()!['name']}');
+    print(_chatList.docs.map((e) => e.data()).toList());
+    update();
+    return {
+      'userName': _userName.data()!['name'],
+      'chatList': _chatList.docs,
+    };
+  }
+
   @override
   void onInit() {
     super.onInit();
     getMyChatList();
     getUserName();
+    getUserNameAndChatList();
   }
 }

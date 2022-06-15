@@ -28,6 +28,7 @@ _init() async {
       print('token: $token');
       Get.off(() => const HomePageMain());
     } else {
+      print('token: $token');
       Get.off(() => const LoginScreen());
     }
   }
