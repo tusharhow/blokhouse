@@ -28,7 +28,7 @@ _init() async {
       print('token: $token');
       Get.off(() => const HomePageMain());
     } else {
-      print('token: $token');
+      print('Please login');
       Get.off(() => const LoginScreen());
     }
   }
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Blok House',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,

@@ -593,7 +593,7 @@ class AdsDetailsPage extends StatelessWidget {
                         )
                       ],
                     ),
-                    SizedBox(
+                 const   SizedBox(
                       width: 40,
                     ),
                     Column(
@@ -601,27 +601,27 @@ class AdsDetailsPage extends StatelessWidget {
                         Image.asset(
                           'assets/icons/rot.png',
                         ),
-                        SizedBox(
+                    const    SizedBox(
                           height: 5,
                         ),
-                        Text(
+                   const     Text(
                           'Kalan Blok',
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(
+                    const    SizedBox(
                           height: 5,
                         ),
                         Container(
                           height: 35,
                           width: 130,
                           decoration: BoxDecoration(
-                            color: Color(0xff01A8FF),
+                            color:const Color(0xff01A8FF),
                             borderRadius: BorderRadius.circular(50),
                           ),
-                          child: Center(
+                          child:const Center(
                             child: Text(
                               '1.140',
                               style: TextStyle(
@@ -635,13 +635,13 @@ class AdsDetailsPage extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+            const    SizedBox(
                   height: 10,
                 ),
                 Image.asset(
                   'assets/icons/pro.png',
                 ),
-                SizedBox(
+            const    SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -652,10 +652,10 @@ class AdsDetailsPage extends StatelessWidget {
                       color: Colors.blue,
                       height: 25,
                     ),
-                    SizedBox(
+                const    SizedBox(
                       width: 10,
                     ),
-                    Text(
+                const    Text(
                       '2.660.000TL',
                       style: TextStyle(
                         fontSize: 15,
@@ -663,10 +663,10 @@ class AdsDetailsPage extends StatelessWidget {
                         color: Colors.blue,
                       ),
                     ),
-                    SizedBox(
+                 const   SizedBox(
                       width: 5,
                     ),
-                    Text(
+               const     Text(
                       'finanse edildi ',
                       style: TextStyle(
                         fontSize: 15,
@@ -675,7 +675,7 @@ class AdsDetailsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+             const   SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -701,7 +701,7 @@ class AdsDetailsPage extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+             const   SizedBox(
                   height: 10,
                 ),
                 Row(
@@ -711,7 +711,7 @@ class AdsDetailsPage extends StatelessWidget {
                       'assets/icons/map.png',
                       height: 40,
                     ),
-                    Text(
+                const    Text(
                       'Konum :',
                       style: TextStyle(
                         color: Colors.black,
@@ -726,7 +726,7 @@ class AdsDetailsPage extends StatelessWidget {
                     'assets/images/map.png',
                   ),
                 ),
-                SizedBox(
+          const      SizedBox(
                   height: 30,
                 ),
                 Center(
@@ -735,9 +735,9 @@ class AdsDetailsPage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 1.5,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(60),
-                      color: Color(0xff00A9FF),
+                      color:const Color(0xff00A9FF),
                     ),
-                    child: Center(
+                    child:const Center(
                         child: Text(
                       'Yatırım yap',
                       style: TextStyle(
@@ -747,7 +747,7 @@ class AdsDetailsPage extends StatelessWidget {
                     )),
                   ),
                 ),
-                SizedBox(
+            const    SizedBox(
                   height: 30,
                 ),
               ],
