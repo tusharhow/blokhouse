@@ -25,38 +25,74 @@ class AddNewCardController extends GetxController {
   final _auth = FirebaseAuth.instance;
   final firebase = FirebaseFirestore.instance;
 
-  Future addNewCard() async {
+  Future addNewCard(context) async {
     final user = _auth.currentUser;
     final firestore = FirebaseFirestore.instance;
-    firestore
-        .collection('users')
-        .doc(user!.uid)
-        .collection('paymentMethods')
-        .add({
-      "cardNumber": cardNumberController.text,
-      "expiryDate": cardExpiryDateController.text,
-      "cvv": cardCVVController.text,
-      "cardHolderName": cardHolderNameController.text,
-      "type": "card",
-    });
-    update();
+    if (cardHolderNameController.text.isEmpty ||
+        cardNumberController.text.isEmpty ||
+        cardExpiryDateController.text.isEmpty ||
+        cardCVVController.text.isEmpty) {
+      Get.snackbar('Error', 'Please fill all the fields',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          borderRadius: 10);
+
+      return;
+    } else {
+      firestore
+          .collection('users')
+          .doc(user!.uid)
+          .collection('paymentMethods')
+          .add({
+        "cardNumber": cardNumberController.text,
+        "expiryDate": cardExpiryDateController.text,
+        "cvv": cardCVVController.text,
+        "cardHolderName": cardHolderNameController.text,
+        "type": "card",
+      });
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('Başarıyla eklendi'),
+                      duration: Duration(seconds: 2),
+                      backgroundColor: Colors.green,
+                    ));
+      update();
+    }
   }
 
-  Future addNewBank() async {
+  Future addNewBank(context) async {
     final user = _auth.currentUser;
     final firestore = FirebaseFirestore.instance;
-    firestore
-        .collection('users')
-        .doc(user!.uid)
-        .collection('paymentMethods')
-        .add({
-      "bankName": bankNameController.text,
-      "ibanNumber": ibanNumberController.text,
-      "bankHolderName": bankHolderNameController.text,
-      "bankAccountNumber": bankAccountNumberController.text,
-      "type": "bank",
-    });
-    update();
+    if (bankNameController.text.isEmpty ||
+        ibanNumberController.text.isEmpty ||
+        bankHolderNameController.text.isEmpty ||
+        bankAccountNumberController.text.isEmpty) {
+      Get.snackbar('Error', 'Please fill all the fields',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          borderRadius: 10);
+
+      return;
+    } else {
+      firestore
+          .collection('users')
+          .doc(user!.uid)
+          .collection('paymentMethods')
+          .add({
+        "bankName": bankNameController.text,
+        "ibanNumber": ibanNumberController.text,
+        "bankHolderName": bankHolderNameController.text,
+        "bankAccountNumber": bankAccountNumberController.text,
+        "type": "bank",
+      });
+       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text('Başarıyla eklendi'),
+                      duration: Duration(seconds: 2),
+                      backgroundColor: Colors.green,
+                    ));
+      update();
+    }
   }
 
   List<AddPaymentMethodResponse> paymentMethodsList = [];

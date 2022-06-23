@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../controllers/credentials/cards/add_new_card.dart';
 
@@ -8,7 +9,7 @@ class MyBankInformationSecond extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AddNewCardController addNewCardController = AddNewCardController();
-   
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -255,12 +256,27 @@ class MyBankInformationSecond extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                addNewCardController.addNewBank().then((value) {
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text('Başarıyla eklendi'),
-                    duration: Duration(seconds: 2),
-                    backgroundColor: Colors.green,
-                  ));
+                addNewCardController.addNewBank(context).then((value) {
+                  // if (value != null) {
+                  //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  //     content: Text('Başarıyla eklendi'),
+                  //     duration: Duration(seconds: 2),
+                  //     backgroundColor: Colors.green,
+                  //   ));
+                  // } else {
+                  //   Get.snackbar('Hata', 'Hata oluştu',
+                  //       snackPosition: SnackPosition.BOTTOM,
+                  //       backgroundColor: Colors.red,
+                  //       borderRadius: 10,
+                  //       margin: EdgeInsets.all(10),
+                  //       borderColor: Colors.red,
+                  //       borderWidth: 1,
+                  //       duration: Duration(seconds: 2),
+                  //       icon: Icon(
+                  //         Icons.error,
+                  //         color: Colors.white,
+                  //       ));
+                  // }
                 });
               },
               child: Container(

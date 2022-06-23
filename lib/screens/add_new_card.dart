@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../controllers/credentials/cards/add_new_card.dart';
 
@@ -102,18 +103,18 @@ class AddNewCardScreen extends StatelessWidget {
                   fillColor: Colors.grey.withOpacity(0.1),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
-                    borderSide:const BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.blue,
                     ),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(50),
-                    borderSide:const BorderSide(
+                    borderSide: const BorderSide(
                       color: Colors.blue,
                     ),
                   ),
                   hintText: '4225 9765 0008 6141',
-                  hintStyle:const TextStyle(
+                  hintStyle: const TextStyle(
                     fontSize: 17,
                     color: Colors.black,
                   ),
@@ -122,7 +123,7 @@ class AddNewCardScreen extends StatelessWidget {
                   )),
             ),
           ),
-       const   SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Padding(
@@ -206,12 +207,24 @@ class AddNewCardScreen extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              addNewCardController.addNewCard().then((value) {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  content: Text('Kart bilgileriniz başarıyla eklendi.'),
-                  duration: Duration(seconds: 2),
-                  backgroundColor: Colors.green,
-                ));
+              addNewCardController.addNewCard(context).then((value) {
+                // if (value!=null) {
+                //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                //     content: Text('Kart bilgileriniz başarıyla eklendi.'),
+                //     duration: Duration(seconds: 2),
+                //     backgroundColor: Colors.green,
+                //   ));
+                // } else {
+                //   Get.snackbar('Hata', 'Kart bilgileriniz eklenemedi.',
+                //       snackPosition: SnackPosition.BOTTOM,
+                //       backgroundColor: Colors.red,
+                //       borderRadius: 10,
+                //       margin: EdgeInsets.all(10),
+                //       borderColor: Colors.red,
+                //       borderWidth: 1,
+                //       duration: Duration(seconds: 2),
+                //       icon: Icon(Icons.error));
+                // }
               });
             },
             child: Container(
