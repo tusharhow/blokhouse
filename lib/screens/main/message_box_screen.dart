@@ -1,6 +1,8 @@
 import 'package:blokhouse/components/navigate.dart';
+import 'package:blokhouse/controllers/chat/chat_controller.dart';
 import 'package:blokhouse/screens/main/messages_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../add_new_listing.dart';
 import '../list_in_marketarea.dart';
@@ -14,6 +16,7 @@ class MessageBoxScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+    final chatController = Get.put(ChatConroller());
     return Scaffold(
       drawer: Drawer(
         child: Container(
@@ -154,8 +157,19 @@ class MessageBoxScreen extends StatelessWidget {
       body: SingleChildScrollView(
           child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
+          ),
+          SizedBox(
+            height: 400,
+            child: ListView.builder(
+                itemCount: chatController.chatList.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(chatController.chatList[index].message),
+                    subtitle: Text(chatController.chatList[index].reply),
+                  );
+                }),
           ),
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20),
@@ -225,7 +239,7 @@ class MessageBoxScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 20, right: 20),
             child: GestureDetector(
               onTap: () {
-                push(context: context, widget: MessagesScreen());
+                push(context: context, widget: const MessagesScreen());
               },
               child: Container(
                 // height: 100,

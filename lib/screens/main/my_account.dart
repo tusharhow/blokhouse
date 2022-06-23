@@ -20,6 +20,7 @@ class MyScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthControllers authControllers = AuthControllers();
     return Scaffold(
+      backgroundColor: Colors.white,
       drawer: Drawer(
         child: Container(
           decoration: const BoxDecoration(
@@ -156,7 +157,7 @@ class MyScreen extends StatelessWidget {
             builder: (cont) {
               return Column(
                 children: [
-                  cont.image == null
+                  cont.image == ''
                       ? const SizedBox()
                       : Padding(
                           padding: const EdgeInsets.only(top: 20),

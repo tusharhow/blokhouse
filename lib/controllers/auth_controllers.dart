@@ -47,6 +47,14 @@ class AuthControllers extends GetxController {
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
   Future<void> createAccount() async {
+    if (emailController.text.isEmpty || passwordController.text.isEmpty) {
+      Get.snackbar('Error', 'Please fill all the fields',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          borderRadius: 10);
+      return;
+    }
     final user = await _auth.createUserWithEmailAndPassword(
         email: emailController.text, password: passwordController.text);
     final firestore = FirebaseFirestore.instance;
@@ -61,6 +69,8 @@ class AuthControllers extends GetxController {
         "address": addressController.text,
         "postalCode": postCodeController.text,
         "mobileNumber": phoneController.text,
+        "image":
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/OOjs_UI_icon_add.svg/1024px-OOjs_UI_icon_add.svg.png",
       },
     );
     if (user != null) {
@@ -72,6 +82,15 @@ class AuthControllers extends GetxController {
 
   Future<void> loginUser() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (loginEmailController.text.isEmpty ||
+        loginPasswordController.text.isEmpty) {
+      Get.snackbar('Error', 'Please fill all the fields',
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+          borderRadius: 10);
+      return;
+    }
     final user = await _auth.signInWithEmailAndPassword(
         email: loginEmailController.text,
         password: loginPasswordController.text);
@@ -205,9 +224,7 @@ class AuthControllers extends GetxController {
   Future sendPasswordResetEmail() async {
     await _auth
         .sendPasswordResetEmail(email: forgotEmailController.text.trim())
-        .then((value) {
-          
-        });
+        .then((value) {});
   }
 
   @override

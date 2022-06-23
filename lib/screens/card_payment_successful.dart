@@ -1,6 +1,5 @@
 import 'package:blokhouse/screens/card_payment_failed.dart';
 import 'package:flutter/material.dart';
-
 import '../components/navigate.dart';
 
 class CardPaymentSuccessful extends StatelessWidget {
@@ -12,7 +11,7 @@ class CardPaymentSuccessful extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(
+          const Center(
             child: Text(
               'Ödeme başarılı bir şekilde\ngerçekleşti !',
               style: TextStyle(
@@ -21,46 +20,46 @@ class CardPaymentSuccessful extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
+          const Text(
             'BlokHouse üzerinden yatırıma başlayabilirsiniz...',
             style: TextStyle(
               fontSize: 15,
               color: Colors.grey,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Image.asset('assets/icons/done.png'),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          Text(
+          const Text(
             '10.000₺ Tutarı kartınızdan başarılı bir şekilde\nçekilmiştir !',
             style: TextStyle(
               fontSize: 15,
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          Text(
+          const Text(
             '10 adet BLOK hesabınıza kısa süre içerisinde aktarılacaktır.',
             style: TextStyle(
               color: Colors.grey,
               fontSize: 12,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           GestureDetector(
             onTap: () {
-              push(context: context, widget: CardPaymentFailed());
+              push(context: context, widget: const CardPaymentFailed());
             },
             child: Container(
               height: 60,
@@ -69,10 +68,10 @@ class CardPaymentSuccessful extends StatelessWidget {
                 borderRadius: BorderRadius.circular(50),
                 color: Colors.white,
                 border: Border.all(
-                  color: Color(0xff596273),
+                  color: const Color(0xff596273),
                 ),
               ),
-              child: Center(
+              child: const Center(
                   child: Text('Hesabıma geri dön',
                       style:
                           TextStyle(color: Color(0xff596273), fontSize: 20))),

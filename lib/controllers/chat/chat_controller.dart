@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:blokhouse/models/chat_list_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,6 +15,8 @@ class ChatConroller extends GetxController {
     _firestore
         .collection('chatWithUser')
         .doc(_auth.currentUser!.uid)
+        .collection('chats')
+        .doc(senderId)
         .collection('chats')
         .add({
       'userId': senderId,
@@ -49,24 +54,29 @@ class ChatConroller extends GetxController {
   }
 
 // get user name and chat all list with user id
-  Future getUserNameAndChatList() async {
+  List<ChatListModel> chatList = [];
+  Future getChatList() async {
     final _firestore = FirebaseFirestore.instance;
     final _auth = FirebaseAuth.instance;
     final _user = _auth.currentUser;
-    final _userName =
-        await _firestore.collection('users').doc(_user!.uid).get();
     final _chatList = await _firestore
         .collection('chatWithUser')
-        .doc(_user.uid)
+        .doc(_user!.uid)
         .collection('chats')
         .get();
-    print('///${_userName.data()!['name']}');
-    print(_chatList.docs.map((e) => e.data()).toList());
-    update();
-    return {
-      'userName': _userName.data()!['name'],
-      'chatList': _chatList.docs,
-    };
+    for (var chat in _chatList.docs) {
+      final _userId = chat.data()['userId'];
+      final _userName = await getUserName();
+      final _chatListModel = ChatListModel(
+        createdAt: chat.data()['createdAt'].toString(),
+        userId: _userId,
+        message: chat.data()['message'],
+        reply: chat.data()['reply'],
+      );
+      chatList.add(_chatListModel);
+      print(chatList.length);
+      update();
+    }
   }
 
   @override
@@ -74,6 +84,6 @@ class ChatConroller extends GetxController {
     super.onInit();
     getMyChatList();
     getUserName();
-    getUserNameAndChatList();
+    getChatList();
   }
 }

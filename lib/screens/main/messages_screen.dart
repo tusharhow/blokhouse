@@ -21,7 +21,7 @@ class MessagesScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 2,
         title: const Text(
-          '',
+          'Tushar',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -44,6 +44,8 @@ class MessagesScreen extends StatelessWidget {
                 stream: _firestore
                     .collection('chatWithUser')
                     .doc(_user!.uid)
+                    .collection('chats')
+                    .doc("ddddddddd")
                     .collection('chats')
                     .orderBy('createdAt', descending: true)
                     .snapshots(),
@@ -141,7 +143,7 @@ class MessagesScreen extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         chatConroller.sendMessage(
-                          chatConroller.messageController.text,
+                          "ddddddddd",
                         );
                       },
                       child: Container(
