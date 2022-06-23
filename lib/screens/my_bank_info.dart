@@ -256,28 +256,7 @@ class MyBankInformationSecond extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                addNewCardController.addNewBank(context).then((value) {
-                  // if (value != null) {
-                  //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  //     content: Text('Başarıyla eklendi'),
-                  //     duration: Duration(seconds: 2),
-                  //     backgroundColor: Colors.green,
-                  //   ));
-                  // } else {
-                  //   Get.snackbar('Hata', 'Hata oluştu',
-                  //       snackPosition: SnackPosition.BOTTOM,
-                  //       backgroundColor: Colors.red,
-                  //       borderRadius: 10,
-                  //       margin: EdgeInsets.all(10),
-                  //       borderColor: Colors.red,
-                  //       borderWidth: 1,
-                  //       duration: Duration(seconds: 2),
-                  //       icon: Icon(
-                  //         Icons.error,
-                  //         color: Colors.white,
-                  //       ));
-                  // }
-                });
+                addNewCardController.addNewBank(context);
               },
               child: Container(
                 height: 50,

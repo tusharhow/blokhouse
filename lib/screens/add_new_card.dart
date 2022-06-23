@@ -207,25 +207,7 @@ class AddNewCardScreen extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              addNewCardController.addNewCard(context).then((value) {
-                // if (value!=null) {
-                //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                //     content: Text('Kart bilgileriniz başarıyla eklendi.'),
-                //     duration: Duration(seconds: 2),
-                //     backgroundColor: Colors.green,
-                //   ));
-                // } else {
-                //   Get.snackbar('Hata', 'Kart bilgileriniz eklenemedi.',
-                //       snackPosition: SnackPosition.BOTTOM,
-                //       backgroundColor: Colors.red,
-                //       borderRadius: 10,
-                //       margin: EdgeInsets.all(10),
-                //       borderColor: Colors.red,
-                //       borderWidth: 1,
-                //       duration: Duration(seconds: 2),
-                //       icon: Icon(Icons.error));
-                // }
-              });
+              addNewCardController.addNewCard(context);
             },
             child: Container(
               height: 50,
