@@ -1,4 +1,3 @@
-import 'package:blokhouse/controllers/auth_controllers.dart';
 import 'package:blokhouse/screens/auth/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

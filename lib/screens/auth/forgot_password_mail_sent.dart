@@ -81,12 +81,12 @@ class ForgotPasswordMailSent extends StatelessWidget {
                     Get.snackbar(
                       'Hata',
                       'Mail gönderilemedi. Lütfen tekrar deneyiniz.',
-                      icon: Icon(
+                      icon:const Icon(
                         Icons.error,
                         color: Colors.white,
                       ),
                       backgroundColor: Colors.red,
-                      duration: Duration(seconds: 3),
+                      duration:const Duration(seconds: 3),
                     );
                   }
                 });

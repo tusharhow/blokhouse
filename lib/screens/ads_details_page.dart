@@ -468,7 +468,7 @@ class AdsDetailsPage extends StatelessWidget {
                             children: const [
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(left: 20, top: 15),
+                                     EdgeInsets.only(left: 20, top: 15),
                                 child: Text(
                                   '4 yıllık',
                                   style: TextStyle(
@@ -477,7 +477,7 @@ class AdsDetailsPage extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 20),
+                                padding:  EdgeInsets.only(left: 20),
                                 child: Text(
                                   '+%344,47	',
                                   style: TextStyle(
@@ -680,7 +680,7 @@ class AdsDetailsPage extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+                  children:const [
                     Text(
                       '%70',
                       style: TextStyle(

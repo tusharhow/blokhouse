@@ -60,7 +60,7 @@ class _KYCVerificationState extends State<KYCVerification> {
                           ),
                         ),
                    const  Padding(
-                          padding: const EdgeInsets.only(left: 15),
+                          padding:  EdgeInsets.only(left: 15),
                           child: Text(
                             'Kimlik veya pasaport yükle',
                             style: TextStyle(
@@ -98,8 +98,8 @@ class _KYCVerificationState extends State<KYCVerification> {
                             color: Colors.black45,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
+                      const  Padding(
+                          padding:  EdgeInsets.only(left: 15),
                           child: Text(
                             'İkametgah - adres doğrulama belgesi yükle',
                             style: TextStyle(
@@ -114,7 +114,7 @@ class _KYCVerificationState extends State<KYCVerification> {
                 ),
               ),
             ),
-            SizedBox(
+         const   SizedBox(
               height: 20,
             ),
             GestureDetector(
@@ -137,8 +137,8 @@ class _KYCVerificationState extends State<KYCVerification> {
                             color: Colors.black45,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
+                   const     Padding(
+                          padding:  EdgeInsets.only(left: 15),
                           child: Text(
                             'Fotoğraf makinesi ile çek',
                             style: TextStyle(
@@ -153,7 +153,7 @@ class _KYCVerificationState extends State<KYCVerification> {
                 ),
               ),
             ),
-            SizedBox(
+        const    SizedBox(
               height: 30,
             ),
             CheckboxListTile(

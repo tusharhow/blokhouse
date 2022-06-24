@@ -2,7 +2,7 @@ import 'package:blokhouse/components/navigate.dart';
 import 'package:blokhouse/components/primary_button.dart';
 import 'package:blokhouse/controllers/marketarea.dart';
 import 'package:blokhouse/screens/blok_sat_screen.dart';
-import 'package:blokhouse/screens/card_payment_successful.dart';
+import 'package:blokhouse/screens/cards/card_payment_successful.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

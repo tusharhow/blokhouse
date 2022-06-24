@@ -1,6 +1,6 @@
-import 'package:blokhouse/screens/card_payment_failed.dart';
+import 'package:blokhouse/screens/cards/card_payment_failed.dart';
 import 'package:flutter/material.dart';
-import '../components/navigate.dart';
+import '../../components/navigate.dart';
 
 class CardPaymentSuccessful extends StatelessWidget {
   const CardPaymentSuccessful({Key? key}) : super(key: key);

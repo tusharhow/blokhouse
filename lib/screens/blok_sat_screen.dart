@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../components/navigate.dart';
 import '../components/primary_button.dart';
-import 'card_payment_successful.dart';
+import 'cards/card_payment_successful.dart';
 
 class BlokSatScreen extends StatelessWidget {
   const BlokSatScreen({Key? key}) : super(key: key);
