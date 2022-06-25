@@ -43,7 +43,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: [
+                children: const[
                   Text(
                     'Name',
                     style: TextStyle(
@@ -71,7 +71,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: [
+                children: const[
                   Text(
                     'Email',
                     style: TextStyle(
@@ -99,7 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: [
+                children: const[
                   Text(
                     'Password',
                     style: TextStyle(
@@ -127,7 +127,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: [
+                children:const [
                   Text(
                     'T.C Kimlik veya Pasaport numarası',
                     style: TextStyle(
@@ -155,7 +155,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: [
+                children: const[
                   Text(
                     'Doğum tarihi (dd/mm/yyyy)',
                     style: TextStyle(
@@ -183,7 +183,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: [
+                children: const[
                   Text(
                     'İkamet ettiğiniz şehir',
                     style: TextStyle(

@@ -184,15 +184,15 @@ class _KYCVerificationState extends State<KYCVerification> {
                   showDialog(
                       context: context,
                       builder: (context) => CupertinoAlertDialog(
-                            title: Text('Tebrikler ! 🎉'),
-                            content: Text(
+                            title:const Text('Tebrikler ! 🎉'),
+                            content:const Text(
                                 'Belgeleriniz ekibimiz tarafından\ndoğrulandıktan sonra, bir onay maili ile\nhesabınızı aktif hale getirebileceksiniz. '),
                             actions: [
                               CupertinoDialogAction(
-                                child: Text('Anasayfaya'),
+                                child:const Text('Anasayfaya'),
                                 onPressed: () {
                                   push(
-                                      context: context, widget: HomePageMain());
+                                      context: context, widget:const HomePageMain());
                                 },
                               ),
                             ],
@@ -208,9 +208,9 @@ class _KYCVerificationState extends State<KYCVerification> {
                 children: [
                   GestureDetector(
                     onTap: (() {
-                      push(context: context, widget: SupportScreen());
+                      push(context: context, widget:const SupportScreen());
                     }),
-                    child: Text(
+                    child:const Text(
                       'Yardım',
                       style: TextStyle(
                         color: Colors.black45,
@@ -218,7 +218,7 @@ class _KYCVerificationState extends State<KYCVerification> {
                       ),
                     ),
                   ),
-                  Text(
+               const   Text(
                     'Şifremi unuttum',
                     style: TextStyle(
                       color: Colors.black45,
@@ -228,7 +228,7 @@ class _KYCVerificationState extends State<KYCVerification> {
                 ],
               ),
             ),
-            SizedBox(
+           const SizedBox(
               height: 20,
             ),
           ],
@@ -242,28 +242,28 @@ Widget bottomSheet(con) {
   return Container(
     height: 200.0,
     width: MediaQuery.of(con).size.width,
-    margin: EdgeInsets.symmetric(
+    margin:const EdgeInsets.symmetric(
       horizontal: 20,
       vertical: 20,
     ),
     child: Column(
       children: <Widget>[
-        Text(
+       const Text(
           "Belgelerinizi yükleyin",
           style: TextStyle(
             fontSize: 20.0,
           ),
         ),
-        SizedBox(
+      const  SizedBox(
           height: 20,
         ),
-        Text(
+    const    Text(
           "Yüklediğiniz belgelerin okunabilir ve\norijinal belgeler olduğundan emin olunuz.",
           style: TextStyle(
             fontSize: 15.0,
           ),
         ),
-        SizedBox(
+      const  SizedBox(
           height: 20,
         ),
         PrimaryButton(
@@ -272,7 +272,7 @@ Widget bottomSheet(con) {
           btnTextColor: Colors.white,
           onPressed: () {},
         ),
-        SizedBox(
+  const      SizedBox(
           height: 20,
         ),
         GestureDetector(

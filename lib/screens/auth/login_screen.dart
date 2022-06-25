@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
               left: 30,
             ),
             child: Row(
-              children: [
+              children: const[
                 Text(
                   'Email',
                   style: TextStyle(
@@ -71,7 +71,7 @@ class LoginScreen extends StatelessWidget {
               left: 30,
             ),
             child: Row(
-              children: [
+              children: const[
                 Text(
                   'Password',
                   style: TextStyle(
