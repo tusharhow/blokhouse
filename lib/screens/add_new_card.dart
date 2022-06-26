@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
 import '../controllers/credentials/cards/add_new_card.dart';
 
 class AddNewCardScreen extends StatelessWidget {

@@ -24,7 +24,7 @@ class BlokSatScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        iconTheme: IconThemeData(
+        iconTheme:const IconThemeData(
           color: Colors.black,
         ),
       ),
@@ -70,7 +70,7 @@ class BlokSatScreen extends StatelessWidget {
                           child: Center(
                             child: Text(
                               cont.blokSat.toString(),
-                              style: TextStyle(
+                              style:const TextStyle(
                                 fontSize: 20,
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -91,7 +91,7 @@ class BlokSatScreen extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(
+                const  SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -101,25 +101,25 @@ class BlokSatScreen extends StatelessWidget {
                         onTap: () {
                           cont.decreasBlokSat();
                         },
-                        child: Icon(
+                        child:const Icon(
                           Icons.remove,
                           color: Colors.black,
                           size: 35,
                         ),
                       ),
-                      SizedBox(
+                  const    SizedBox(
                         width: 5,
                       ),
                       Container(
                         height: 60,
                         width: 70,
                         decoration: BoxDecoration(
-                            color: Color(0xffF0F0F0),
+                            color:const Color(0xffF0F0F0),
                             borderRadius: BorderRadius.circular(50)),
                         child: Center(
                           child: Text(
                             cont.blokSat.toString(),
-                            style: TextStyle(
+                            style:const TextStyle(
                               fontSize: 20,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -127,14 +127,14 @@ class BlokSatScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                  const    SizedBox(
                         width: 5,
                       ),
                       GestureDetector(
                         onTap: () {
                           cont.incrementBlokSat();
                         },
-                        child: Icon(
+                        child:const Icon(
                           Icons.add,
                           color: Colors.black,
                           size: 35,
@@ -142,28 +142,28 @@ class BlokSatScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+              const    SizedBox(
                     height: 20,
                   ),
-                  Text(
+              const    Text(
                     'Banka hesabı seçiniz :',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(
+              const    SizedBox(
                     height: 20,
                   ),
                   Text(
                     '${cont.blokSat}.000 TL',
-                    style: TextStyle(
+                    style:const TextStyle(
                       fontSize: 55,
                       color: Color(0xffFF0000),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+              const    SizedBox(
                     height: 20,
                   ),
                   Padding(
@@ -171,7 +171,7 @@ class BlokSatScreen extends StatelessWidget {
                       left: 20,
                     ),
                     child: Row(
-                      children: [
+                      children: const[
                         Text(
                           'Ödeme aracı seçiniz : ',
                           style: TextStyle(
@@ -182,18 +182,18 @@ class BlokSatScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+           const       SizedBox(
                     height: 20,
                   ),
                   GestureDetector(
                     onTap: (() {
-                      push(context: context, widget: CardPaymentSuccessful());
+                      push(context: context, widget:const CardPaymentSuccessful());
                     }),
                     child: Container(
                       height: 60,
                       width: MediaQuery.of(context).size.width / 1.2,
                       decoration: BoxDecoration(
-                        color: Color(0xffF0F0F0),
+                        color:const Color(0xffF0F0F0),
                         borderRadius: BorderRadius.circular(50),
                       ),
                       child: Row(

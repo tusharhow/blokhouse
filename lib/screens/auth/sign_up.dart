@@ -211,7 +211,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: [
+                children: const[
                   Text(
                     'Adres',
                     style: TextStyle(
@@ -239,7 +239,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: [
+                children: const[
                   Text(
                     'Posta kodu',
                     style: TextStyle(
@@ -267,7 +267,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: [
+                children:const [
                   Text(
                     'Cep telefonu',
                     style: TextStyle(
