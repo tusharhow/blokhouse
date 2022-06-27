@@ -15,7 +15,7 @@ class BlokAlScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 2,
-        title: Text(
+        title:const Text(
           'BLOK al',
           style: TextStyle(
             fontSize: 20,
@@ -24,7 +24,7 @@ class BlokAlScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        iconTheme: IconThemeData(
+        iconTheme:const IconThemeData(
           color: Colors.black,
         ),
       ),
@@ -42,17 +42,17 @@ class BlokAlScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+           const       SizedBox(
                     height: 20,
                   ),
-                  Text(
+              const    Text(
                     'Kaç adet BLOK satın almak istiyorsunuz ?',
                     style: TextStyle(
                       fontSize: 17,
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(
+              const    SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -62,25 +62,25 @@ class BlokAlScreen extends StatelessWidget {
                         onTap: () {
                           cont.decreasBlolAl();
                         },
-                        child: Icon(
+                        child:const Icon(
                           Icons.remove,
                           color: Colors.black,
                           size: 35,
                         ),
                       ),
-                      SizedBox(
+                  const    SizedBox(
                         width: 5,
                       ),
                       Container(
                         height: 60,
                         width: 70,
                         decoration: BoxDecoration(
-                            color: Color(0xffF0F0F0),
+                            color:const Color(0xffF0F0F0),
                             borderRadius: BorderRadius.circular(50)),
                         child: Center(
                           child: Text(
                             cont.blolAl.toString(),
-                            style: TextStyle(
+                            style:const TextStyle(
                               fontSize: 20,
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
@@ -88,14 +88,14 @@ class BlokAlScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                 const     SizedBox(
                         width: 5,
                       ),
                       GestureDetector(
                         onTap: () {
                           cont.incrementBlolAl();
                         },
-                        child: Icon(
+                        child:const Icon(
                           Icons.add,
                           color: Colors.black,
                           size: 35,
@@ -103,28 +103,28 @@ class BlokAlScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+              const    SizedBox(
                     height: 20,
                   ),
-                  Text(
+              const    Text(
                     'Ödenecek toplam tutar :',
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
                     ),
                   ),
-                  SizedBox(
+               const   SizedBox(
                     height: 20,
                   ),
                   Text(
                     '${cont.blolAl * cont.blolAl}.000TL',
-                    style: TextStyle(
+                    style:const TextStyle(
                       fontSize: 55,
                       color: Color(0xff00A9FF),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+            const      SizedBox(
                     height: 20,
                   ),
                   Padding(
@@ -132,7 +132,7 @@ class BlokAlScreen extends StatelessWidget {
                       left: 20,
                     ),
                     child: Row(
-                      children: [
+                      children: const[
                         Text(
                           'Ödeme aracı seçiniz : ',
                           style: TextStyle(
@@ -143,18 +143,18 @@ class BlokAlScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(
+               const   SizedBox(
                     height: 20,
                   ),
                   GestureDetector(
                     onTap: () {
-                      push(context: context, widget: BlokSatScreen());
+                      push(context: context, widget:const BlokSatScreen());
                     },
                     child: Container(
                       height: 60,
                       width: MediaQuery.of(context).size.width / 1.2,
                       decoration: BoxDecoration(
-                        color: Color(0xffF0F0F0),
+                        color: const Color(0xffF0F0F0),
                         borderRadius: BorderRadius.circular(50),
                       ),
                       child: Row(
@@ -165,10 +165,10 @@ class BlokAlScreen extends StatelessWidget {
                               'assets/icons/bank2.png',
                             ),
                           ),
-                          SizedBox(
+                     const     SizedBox(
                             width: 10,
                           ),
-                          Text(
+                      const    Text(
                             'Havale / EFT - Ziraat Bankası',
                             style: TextStyle(
                               fontSize: 14,
@@ -179,18 +179,18 @@ class BlokAlScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+             const     SizedBox(
                     height: 20,
                   ),
                   GestureDetector(
                     onTap: () {
-                      push(context: context, widget: BlokSatScreen());
+                      push(context: context, widget:const BlokSatScreen());
                     },
                     child: Container(
                       height: 60,
                       width: MediaQuery.of(context).size.width / 1.2,
                       decoration: BoxDecoration(
-                        color: Color(0xffF0F0F0),
+                        color:const Color(0xffF0F0F0),
                         borderRadius: BorderRadius.circular(50),
                       ),
                       child: Row(
@@ -201,7 +201,7 @@ class BlokAlScreen extends StatelessWidget {
                               'assets/icons/card.png',
                             ),
                           ),
-                          SizedBox(
+                      const    SizedBox(
                             width: 10,
                           ),
                           Text(

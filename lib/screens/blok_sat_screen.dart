@@ -204,10 +204,10 @@ class BlokSatScreen extends StatelessWidget {
                               'assets/icons/bank2.png',
                             ),
                           ),
-                          SizedBox(
+                       const   SizedBox(
                             width: 10,
                           ),
-                          Text(
+                       const   Text(
                             'Ziraat Bankası - 01283122xxx',
                             style: TextStyle(
                               fontSize: 14,
@@ -218,28 +218,28 @@ class BlokSatScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+              const    SizedBox(
                     height: 10,
                   ),
-                  Text(
+              const    Text(
                     'Blok satışı sadece banka havalesi ile gerçekleşmektedir. ',
                     style: TextStyle(
                       fontSize: 11,
                       color: Colors.black54,
                     ),
                   ),
-                  SizedBox(
+               const   SizedBox(
                     height: 20,
                   ),
                   PrimaryButton(
-                    btnColor: Color(0xff00A9FF),
+                    btnColor:const Color(0xff00A9FF),
                     btnText: 'Şimdi sat',
                     btnTextColor: Colors.white,
                     onPressed: () {
-                      push(context: context, widget: CardPaymentSuccessful());
+                      push(context: context, widget:const CardPaymentSuccessful());
                     },
                   ),
-                  SizedBox(
+             const     SizedBox(
                     height: 50,
                   ),
                 ],
