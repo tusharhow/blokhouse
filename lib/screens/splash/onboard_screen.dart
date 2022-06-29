@@ -129,7 +129,7 @@ class _IntroPageState extends State<IntroPage> {
                 TextSpan(
                   text: 'Yeni nesil ',
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -137,7 +137,7 @@ class _IntroPageState extends State<IntroPage> {
                 TextSpan(
                   text: 'gayrimenkul yatırım\nplatformu ile tanışın !',
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 20,
                     color: Colors.white,
                   ),
                 ),

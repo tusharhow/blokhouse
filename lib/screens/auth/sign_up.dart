@@ -1,6 +1,7 @@
 import 'package:blokhouse/components/navigate.dart';
 import 'package:blokhouse/components/primary_button.dart';
 import 'package:blokhouse/controllers/auth_controllers.dart';
+import 'package:blokhouse/screens/auth/forgot_password_mail_sent.dart';
 import 'package:blokhouse/screens/auth/login_screen.dart';
 import 'package:blokhouse/screens/help_and_communication/help_and_communication_screen.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +44,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: const[
+                children: const [
                   Text(
                     'Name',
                     style: TextStyle(
@@ -71,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: const[
+                children: const [
                   Text(
                     'Email',
                     style: TextStyle(
@@ -99,7 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: const[
+                children: const [
                   Text(
                     'Password',
                     style: TextStyle(
@@ -127,7 +128,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children:const [
+                children: const [
                   Text(
                     'T.C Kimlik veya Pasaport numarası',
                     style: TextStyle(
@@ -155,7 +156,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: const[
+                children: const [
                   Text(
                     'Doğum tarihi (dd/mm/yyyy)',
                     style: TextStyle(
@@ -183,7 +184,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: const[
+                children: const [
                   Text(
                     'İkamet ettiğiniz şehir',
                     style: TextStyle(
@@ -211,7 +212,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: const[
+                children: const [
                   Text(
                     'Adres',
                     style: TextStyle(
@@ -239,7 +240,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children: const[
+                children: const [
                   Text(
                     'Posta kodu',
                     style: TextStyle(
@@ -267,7 +268,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 left: 30,
               ),
               child: Row(
-                children:const [
+                children: const [
                   Text(
                     'Cep telefonu',
                     style: TextStyle(
@@ -408,7 +409,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      push(context: context, widget: const ForgotPasswordMailSent());
+                    },
                     child: const Text(
                       'Şifremi unuttum',
                       style: TextStyle(

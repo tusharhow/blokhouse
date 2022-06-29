@@ -133,6 +133,7 @@ class MyScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 2,
+      
         actions: [
           GestureDetector(
               onTap: () {},
