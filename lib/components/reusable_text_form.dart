@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 
 class ReusableTextFormField extends StatelessWidget {
-  const ReusableTextFormField(
-      {Key? key, required this.hint, required this.controller})
-      : super(key: key);
+  ReusableTextFormField({
+    Key? key,
+    required this.hint,
+    required this.controller,
+ required   this.keyboardType,
+  }) : super(key: key);
   final String hint;
   final TextEditingController controller;
+  TextInputType keyboardType;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width / 1.10,
       height: 50,
       child: TextFormField(
+        keyboardType: keyboardType,
         controller: controller,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(horizontal: 20),

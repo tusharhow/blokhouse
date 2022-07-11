@@ -9,7 +9,7 @@ void main() async {
   await Firebase.initializeApp();
   await Dic.setUp();
   runApp(const MyApp());
-  await Dic.init();
+  // await Dic.init();
 }
 
 

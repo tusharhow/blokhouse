@@ -63,6 +63,7 @@ class ConfirmNewPassword extends StatelessWidget {
             ReusableTextFormField(
               hint: 'Mail adresiniz',
               controller: _passController,
+              keyboardType:  TextInputType.emailAddress,
             ),
             const SizedBox(height: 10),
             Padding(
@@ -86,6 +87,7 @@ class ConfirmNewPassword extends StatelessWidget {
             ReusableTextFormField(
               hint: 'Mail adresiniz',
               controller: _passConfirmController,
+               keyboardType:  TextInputType.emailAddress,
             ),
             const SizedBox(height: 30),
             PrimaryButton(

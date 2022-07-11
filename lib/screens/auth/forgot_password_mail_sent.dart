@@ -56,7 +56,7 @@ class ForgotPasswordMailSent extends StatelessWidget {
             const SizedBox(height: 10),
             ReusableTextFormField(
               hint: 'Mail adresiniz',
-              controller: _authControllers.forgotEmailController,
+              controller: _authControllers.forgotEmailController, keyboardType:  TextInputType.emailAddress,
             ),
             const SizedBox(height: 30),
             const Text(

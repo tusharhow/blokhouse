@@ -62,6 +62,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: ReusableTextFormField(
                 hint: 'Name',
                 controller: authControllers.nameController,
+                keyboardType: TextInputType.text,
               ),
             ),
             const SizedBox(
@@ -90,6 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: ReusableTextFormField(
                 hint: 'Email',
                 controller: authControllers.emailController,
+                keyboardType: TextInputType.text,
               ),
             ),
             const SizedBox(
@@ -118,6 +120,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: ReusableTextFormField(
                 hint: 'Password',
                 controller: authControllers.passwordController,
+                keyboardType: TextInputType.text,
               ),
             ),
             const SizedBox(
@@ -146,6 +149,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: ReusableTextFormField(
                 hint: 'yazınız...',
                 controller: authControllers.passportNumberController,
+                keyboardType: TextInputType.text,
               ),
             ),
             const SizedBox(
@@ -174,6 +178,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: ReusableTextFormField(
                 hint: 'yazınız...',
                 controller: authControllers.dobController,
+                keyboardType: TextInputType.datetime,
               ),
             ),
             const SizedBox(
@@ -202,6 +207,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: ReusableTextFormField(
                 hint: 'yazınız...',
                 controller: authControllers.cityController,
+                keyboardType: TextInputType.text,
               ),
             ),
             const SizedBox(
@@ -230,6 +236,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: ReusableTextFormField(
                 hint: 'yazınız...',
                 controller: authControllers.addressController,
+                keyboardType: TextInputType.text,
               ),
             ),
             const SizedBox(
@@ -258,6 +265,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: ReusableTextFormField(
                 hint: 'yazınız...',
                 controller: authControllers.postCodeController,
+                keyboardType: TextInputType.number,
               ),
             ),
             const SizedBox(
@@ -286,6 +294,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               child: ReusableTextFormField(
                 hint: 'yazınız...',
                 controller: authControllers.phoneController,
+                keyboardType: TextInputType.number,
               ),
             ),
             const SizedBox(
@@ -410,7 +419,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      push(context: context, widget: const ForgotPasswordMailSent());
+                      push(
+                          context: context,
+                          widget: const ForgotPasswordMailSent());
                     },
                     child: const Text(
                       'Şifremi unuttum',

@@ -43,7 +43,7 @@ class LoginScreen extends StatelessWidget {
               left: 30,
             ),
             child: Row(
-              children: const[
+              children: const [
                 Text(
                   'Email',
                   style: TextStyle(
@@ -61,6 +61,7 @@ class LoginScreen extends StatelessWidget {
             child: ReusableTextFormField(
               hint: 'Email',
               controller: authControllers.loginEmailController,
+              keyboardType: TextInputType.emailAddress,
             ),
           ),
           const SizedBox(
@@ -71,7 +72,7 @@ class LoginScreen extends StatelessWidget {
               left: 30,
             ),
             child: Row(
-              children: const[
+              children: const [
                 Text(
                   'Password',
                   style: TextStyle(
@@ -89,6 +90,7 @@ class LoginScreen extends StatelessWidget {
             child: ReusableTextFormField(
               hint: 'Password',
               controller: authControllers.loginPasswordController,
+              keyboardType: TextInputType.visiblePassword,
             ),
           ),
           const SizedBox(
